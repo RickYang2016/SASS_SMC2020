@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario compiled="true" name="15.xml" version="1.0" xmlns="nmfPlan" xmlns:CORE="coreSpecific">
+  <network id="wlan16" name="wlan16">
+    <point lat="47.5785991563" lon="-122.103009595" type="gps"/>
+    <type>wireless</type>
+    <alias domain="COREID">16</alias>
+    <member type="interface">n1/eth0</member>
+    <member type="interface">n2/eth0</member>
+    <member type="interface">n3/eth0</member>
+    <member type="interface">n4/eth0</member>
+    <member type="interface">n5/eth0</member>
+    <member type="interface">n6/eth0</member>
+    <member type="interface">n7/eth0</member>
+    <member type="interface">n8/eth0</member>
+    <member type="interface">n9/eth0</member>
+    <member type="interface">n10/eth0</member>
+    <member type="interface">n11/eth0</member>
+    <member type="interface">n12/eth0</member>
+    <member type="interface">n13/eth0</member>
+    <member type="interface">n14/eth0</member>
+    <member type="interface">n15/eth0</member>
+    <member type="channel">wlan16/wireless</member>
+    <channel id="wlan16/wireless" name="wireless">
+      <type domain="CORE">basic_range</type>
+      <parameter name="range">1500.0</parameter>
+      <parameter name="bandwidth">54000000</parameter>
+      <parameter name="jitter">0.0</parameter>
+      <parameter name="delay">20000</parameter>
+      <parameter name="error">0.0</parameter>
+      <member index="0" type="interface">n1/eth0</member>
+      <member index="1" type="interface">n2/eth0</member>
+      <member index="2" type="interface">n3/eth0</member>
+      <member index="3" type="interface">n4/eth0</member>
+      <member index="4" type="interface">n5/eth0</member>
+      <member index="5" type="interface">n6/eth0</member>
+      <member index="6" type="interface">n7/eth0</member>
+      <member index="7" type="interface">n8/eth0</member>
+      <member index="8" type="interface">n9/eth0</member>
+      <member index="9" type="interface">n10/eth0</member>
+      <member index="10" type="interface">n11/eth0</member>
+      <member index="11" type="interface">n12/eth0</member>
+      <member index="12" type="interface">n13/eth0</member>
+      <member index="13" type="interface">n14/eth0</member>
+      <member index="14" type="interface">n15/eth0</member>
+    </channel>
+  </network>
+  <router id="n1" name="n1">
+    <type domain="CORE">mdr</type>
+    <interface id="n1/eth0" name="eth0">
+      <member index="0" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:1e</address>
+      <address type="IPv4">10.0.0.1/24</address>
+      <address type="IPv6">2001::1/128</address>
+    </interface>
+    <alias domain="COREID">1</alias>
+    <point lat="47.5779690472" lon="-122.131623679" type="gps"/>
+    <CORE:services name="n1">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n2" name="n2">
+    <type domain="CORE">mdr</type>
+    <interface id="n2/eth0" name="eth0">
+      <member index="1" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:1f</address>
+      <address type="IPv4">10.0.0.2/24</address>
+      <address type="IPv6">2001::2/128</address>
+    </interface>
+    <alias domain="COREID">2</alias>
+    <point lat="47.575478033" lon="-122.130627697" type="gps"/>
+    <CORE:services name="n2">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n3" name="n3">
+    <type domain="CORE">mdr</type>
+    <interface id="n3/eth0" name="eth0">
+      <member index="2" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:20</address>
+      <address type="IPv4">10.0.0.3/24</address>
+      <address type="IPv6">2001::3/128</address>
+    </interface>
+    <alias domain="COREID">3</alias>
+    <point lat="47.5751345547" lon="-122.131610709" type="gps"/>
+    <CORE:services name="n3">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n4" name="n4">
+    <type domain="CORE">mdr</type>
+    <interface id="n4/eth0" name="eth0">
+      <member index="3" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:21</address>
+      <address type="IPv4">10.0.0.4/24</address>
+      <address type="IPv6">2001::4/128</address>
+    </interface>
+    <alias domain="COREID">4</alias>
+    <point lat="47.5694460281" lon="-122.13078736" type="gps"/>
+    <CORE:services name="n4">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n5" name="n5">
+    <type domain="CORE">mdr</type>
+    <interface id="n5/eth0" name="eth0">
+      <member index="4" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:22</address>
+      <address type="IPv4">10.0.0.5/24</address>
+      <address type="IPv6">2001::5/128</address>
+    </interface>
+    <alias domain="COREID">5</alias>
+    <point lat="47.5774347181" lon="-122.130575359" type="gps"/>
+    <CORE:services name="n5">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n6" name="n6">
+    <type domain="CORE">mdr</type>
+    <interface id="n6/eth0" name="eth0">
+      <member index="5" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:23</address>
+      <address type="IPv4">10.0.0.6/24</address>
+      <address type="IPv6">2001::6/128</address>
+    </interface>
+    <alias domain="COREID">6</alias>
+    <point lat="47.5768627244" lon="-122.131681864" type="gps"/>
+    <CORE:services name="n6">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n7" name="n7">
+    <type domain="CORE">mdr</type>
+    <interface id="n7/eth0" name="eth0">
+      <member index="6" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:24</address>
+      <address type="IPv4">10.0.0.7/24</address>
+      <address type="IPv6">2001::7/128</address>
+    </interface>
+    <alias domain="COREID">7</alias>
+    <point lat="47.5699259204" lon="-122.131776592" type="gps"/>
+    <CORE:services name="n7">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n8" name="n8">
+    <type domain="CORE">mdr</type>
+    <interface id="n8/eth0" name="eth0">
+      <member index="7" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:25</address>
+      <address type="IPv4">10.0.0.8/24</address>
+      <address type="IPv6">2001::8/128</address>
+    </interface>
+    <alias domain="COREID">8</alias>
+    <point lat="47.5729151107" lon="-122.130829675" type="gps"/>
+    <CORE:services name="n8">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n9" name="n9">
+    <type domain="CORE">mdr</type>
+    <interface id="n9/eth0" name="eth0">
+      <member index="8" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:26</address>
+      <address type="IPv4">10.0.0.9/24</address>
+      <address type="IPv6">2001::9/128</address>
+    </interface>
+    <alias domain="COREID">9</alias>
+    <point lat="47.5738256489" lon="-122.131652295" type="gps"/>
+    <CORE:services name="n9">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n10" name="n10">
+    <type domain="CORE">mdr</type>
+    <interface id="n10/eth0" name="eth0">
+      <member index="9" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:27</address>
+      <address type="IPv4">10.0.0.10/24</address>
+      <address type="IPv6">2001::10/128</address>
+    </interface>
+    <alias domain="COREID">10</alias>
+    <point lat="47.5741554812" lon="-122.130649589" type="gps"/>
+    <CORE:services name="n10">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n11" name="n11">
+    <type domain="CORE">mdr</type>
+    <interface id="n11/eth0" name="eth0">
+      <member index="10" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:28</address>
+      <address type="IPv4">10.0.0.11/24</address>
+      <address type="IPv6">2001::11/128</address>
+    </interface>
+    <alias domain="COREID">11</alias>
+    <point lat="47.5723814865" lon="-122.131656226" type="gps"/>
+    <CORE:services name="n11">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n12" name="n12">
+    <type domain="CORE">mdr</type>
+    <interface id="n12/eth0" name="eth0">
+      <member index="11" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:29</address>
+      <address type="IPv4">10.0.0.12/24</address>
+      <address type="IPv6">2001::12/128</address>
+    </interface>
+    <alias domain="COREID">12</alias>
+    <point lat="47.5707890248" lon="-122.131682551" type="gps"/>
+    <CORE:services name="n12">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n13" name="n13">
+    <type domain="CORE">mdr</type>
+    <interface id="n13/eth0" name="eth0">
+      <member index="12" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:2a</address>
+      <address type="IPv4">10.0.0.13/24</address>
+      <address type="IPv6">2001::13/128</address>
+    </interface>
+    <alias domain="COREID">13</alias>
+    <point lat="47.5703878368" lon="-122.130392846" type="gps"/>
+    <CORE:services name="n13">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n14" name="n14">
+    <type domain="CORE">mdr</type>
+    <interface id="n14/eth0" name="eth0">
+      <member index="13" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:2b</address>
+      <address type="IPv4">10.0.0.14/24</address>
+      <address type="IPv6">2001::14/128</address>
+    </interface>
+    <alias domain="COREID">14</alias>
+    <point lat="47.5764368127" lon="-122.130691609" type="gps"/>
+    <CORE:services name="n14">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <router id="n15" name="n15">
+    <type domain="CORE">mdr</type>
+    <interface id="n15/eth0" name="eth0">
+      <member index="14" type="channel">wlan16/wireless</member>
+      <member type="network">wlan16</member>
+      <address type="mac">00:00:00:aa:00:2c</address>
+      <address type="IPv4">10.0.0.15/24</address>
+      <address type="IPv6">2001::15/128</address>
+    </interface>
+    <alias domain="COREID">15</alias>
+    <point lat="47.5715516186" lon="-122.130792405" type="gps"/>
+    <CORE:services name="n15">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+      <service name="MyService" startup_idx="50"/>
+    </CORE:services>
+    <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
+  </router>
+  <CORE:defaultservices>
+    <device type="mdr">
+      <service name="zebra"/>
+      <service name="OSPFv3MDR"/>
+      <service name="vtysh"/>
+      <service name="IPForward"/>
+    </device>
+  </CORE:defaultservices>
+  <CORE:sessionconfig>
+    <origin alt="2.0" lat="47.5791667" lon="-122.132322" scale100="150.0"/>
+    <options>
+      <parameter name="controlnet">172.16.0.255/24</parameter>
+    </options>
+    <metadata>
+      <parameter name="global_options">interface_names=no ip_addresses=no ipv6_addresses=no node_labels=yes link_labels=yes show_api=no background_images=no annotations=yes grid=no traffic_start=0</parameter>
+      <parameter name="canvas c1">{name {Canvas1}} {refpt {0 0 47.5791667 -122.132322 2.0}} {scale {150.0}} {size {1500 900}}</parameter>
+    </metadata>
+  </CORE:sessionconfig>
+</scenario>
