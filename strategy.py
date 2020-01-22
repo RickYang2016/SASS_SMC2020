@@ -516,7 +516,7 @@ class Strategy_SRSS(Strategy):
 	# 	self.local_debugger.send_to_monitor('formation: index = ' + str(myindex_in_queue))
 	# 	self.local_debugger.log_local('Formation End: To Position %d.' % myindex_in_queue, tag='Status')
 
-	def check_recv_mygroup_utility(self, recv_data):
+	def check_recv_mygroup_coordinate(self, recv_data):
 		try:
 			recv_id = recv_data['id']
 			recv_task_id = recv_data['task_id']
@@ -539,7 +539,7 @@ class Strategy_SRSS(Strategy):
 		send_data = self.get_basic_status()
 		send_data['coordinate'] = self.local_coordinate
 		send_data['task_id'] = self.local_task_id
-		self.message_communication(send_data, condition_func=self.check_recv_mygroup_utility, time_out=0.01)
+		self.message_communication(send_data, condition_func=self.check_recv_mygroup_coordinate, time_out=0.01)
 		mygroup_robots = sorted(self.mygroup_robots_coordinate.keys())
 
 		# Computing the assignment set in the different task locations
@@ -574,18 +574,38 @@ class Strategy_SRSS(Strategy):
 		# my_task_radius = self.global_task_list[self.local_task_id]['radius']
 		# self.local_task_destination[0] = my_task_coordinate[0] + my_task_radius * math.cos(theta)
 		# self.local_task_destination[1] = my_task_coordinate[1] + my_task_radius * math.sin(theta)
+		
 		self.local_direction[0] = self.local_task_destination[0] - self.local_coordinate[0]
 		self.local_direction[1] = self.local_task_destination[1] - self.local_coordinate[1]
 		self.local_debugger.send_to_monitor('formation: index = ' + str(myindex_in_queue))
 		self.local_debugger.log_local('Formation End: To Position %d.' % myindex_in_queue, tag='Status')
 
 	def combinatorial_optimization(self, assignment_set):
+		b_list = {}
+
+		for p in assignment_set.values():
+			w = 0
+			b = utility_function(p)
+			for q in assignment_set.keys():
+				if w == 1:
+					return
+				if q != self.local_id:
+					v_p = p - self.local_coordinate
+					v_q = assignment_set[q] - self.mygroup_robots_coordinate[q]
+					if collision_aware(v_p, v_q):
+						w = 1
+
+			b_list[(1 - w) * b] = p
+
+		sorted(b_list.items(), key = lambda item:item[0], reverse = True)
+
+		return max(b_list)
+
+	def collision_aware(self, v_p, v_q):
 		pass
 
-	def collision_aware(self):
+	def utility_function(self, p):
 		pass
-
-
 		
 
 	def formation_step1(self):
