@@ -597,9 +597,9 @@ class Strategy_SRSS(Strategy):
 
 			b_list[(1 - w) * b] = p
 
-		sorted(b_list.items(), key = lambda item:item[0], reverse = True)
+		b_list = sorted(b_list.items(), key = lambda item:item[0], reverse = True)
 
-		return max(b_list)
+		return b_list[0][1]
 
 	def collision_aware(self, v_p, v_q):
 		pass
