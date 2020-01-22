@@ -56,6 +56,8 @@ class Strategy_SRSS(Strategy):
 	global_is_finish_task = {}			# {1: True, 4: False, 8: False} Only consider about my group
 	global_time_step = 0				# For better logging and collecting data
 
+	mygroup_robots_coordinate = {}		# Used in formation tasks assignment using quadratic assignment method
+
 	local_debugger = None
 
 	def __init__(self, id, \
@@ -514,44 +516,70 @@ class Strategy_SRSS(Strategy):
 	# 	self.local_debugger.send_to_monitor('formation: index = ' + str(myindex_in_queue))
 	# 	self.local_debugger.log_local('Formation End: To Position %d.' % myindex_in_queue, tag='Status')
 
+	def check_recv_mygroup_utility(self, recv_data):
+		try:
+			recv_id = recv_data['id']
+			recv_task_id = recv_data['task_id']
+			# throw out the packet that has different task_id
+			if recv_task_id != self.local_task_id:
+				return
+			self.mygroup_robots_coordinate[recv_id] = recv_data['coordinate']
+			if len(self.mygroup_robots_coordinate) == self.global_group_num_robots:
+				return True
+			else:
+				return False
+		except KeyError:
+			pass
+		except Exception as e:
+			raise e
+
+	# compare with quadratic assignment problem
 	def formation_execution(self):
-		# Computing the distances to the different task locations
-		dist_vector = []
+		# Send the coordinate to others
+		send_data = self.get_basic_status()
+		send_data['coordinate'] = self.local_coordinate
+		send_data['task_id'] = self.local_task_id
+		self.message_communication(send_data, condition_func=self.check_recv_mygroup_utility, time_out=0.01)
+		mygroup_robots = sorted(self.mygroup_robots_coordinate.keys())
+
+		# Computing the assignment set in the different task locations
+		# dist_vector = []
+		assignment_set = {}
+
 		for i in range(self.global_group_num_robots):
 			theta = (2 * math.pi) / self.global_group_num_robots * i
 			task_coordinate = np.array(self.global_task_list[self.local_task_id]['coordinate'])
 			task_radius = self.global_task_list[self.local_task_id]['radius']
 			task_destination = task_coordinate + np.array([task_radius * math.cos(theta), task_radius * math.sin(theta)])
-			task_dist = np.linalg.norm(task_destination - np.array(self.local_coordinate))
-			dist_vector.append(task_dist)
-		# Send the distance vector to others
-		send_data = self.get_basic_status()
-		send_data['dist'] = dist_vector
-		send_data['task_id'] = self.local_task_id
-		self.message_communication(send_data, condition_func=self.check_recv_mygroup_distance, time_out=0.01)
-		dist_matrix = self.global_robots_task_distance
-		# Everyone look at the distance matrix and use the consensus queue to sequentially choose task.
-		myindex_in_queue = 0
-		for i in self.local_queue:
-			task_chosen = dist_matrix[i].index(min(dist_matrix[i]))
-			# task_chosen = dist_matrix[i].index(max(dist_matrix[i]))
-			if i == self.local_id:
-				myindex_in_queue = task_chosen
-				break
-			for j in dist_matrix:
-				dist_matrix[j][task_chosen] = float('inf')
-				# dist_matrix[j][task_chosen] = float('-inf')
-		theta = (2 * math.pi) / self.global_group_num_robots * myindex_in_queue
-		my_task_coordinate = self.global_task_list[self.local_task_id]['coordinate']
-		my_task_radius = self.global_task_list[self.local_task_id]['radius']
-		self.local_task_destination[0] = my_task_coordinate[0] + my_task_radius * math.cos(theta)
-		self.local_task_destination[1] = my_task_coordinate[1] + my_task_radius * math.sin(theta)
+			assignment_set[mygroup_robots[i]] = task_destination
+			# task_dist = np.linalg.norm(task_destination - np.array(self.local_coordinate))
+			# dist_vector.append(task_dist)
+
+		self.local_task_destination = self.combinatorial_optimization(assignment_set)
+
+		# dist_matrix = self.global_robots_task_distance
+		# # Everyone look at the distance matrix and use the consensus queue to sequentially choose task.
+		# myindex_in_queue = 0
+		# for i in self.local_queue:
+		# 	task_chosen = dist_matrix[i].index(min(dist_matrix[i]))
+		# 	# task_chosen = dist_matrix[i].index(max(dist_matrix[i]))
+		# 	if i == self.local_id:
+		# 		myindex_in_queue = task_chosen
+		# 		break
+		# 	for j in dist_matrix:
+		# 		dist_matrix[j][task_chosen] = float('inf')
+		# 		# dist_matrix[j][task_chosen] = float('-inf')
+		# theta = (2 * math.pi) / self.global_group_num_robots * myindex_in_queue
+		# my_task_coordinate = self.global_task_list[self.local_task_id]['coordinate']
+		# my_task_radius = self.global_task_list[self.local_task_id]['radius']
+		# self.local_task_destination[0] = my_task_coordinate[0] + my_task_radius * math.cos(theta)
+		# self.local_task_destination[1] = my_task_coordinate[1] + my_task_radius * math.sin(theta)
 		self.local_direction[0] = self.local_task_destination[0] - self.local_coordinate[0]
 		self.local_direction[1] = self.local_task_destination[1] - self.local_coordinate[1]
 		self.local_debugger.send_to_monitor('formation: index = ' + str(myindex_in_queue))
 		self.local_debugger.log_local('Formation End: To Position %d.' % myindex_in_queue, tag='Status')
 
-	def combinatorial_optimization(self):
+	def combinatorial_optimization(self, assignment_set):
 		pass
 
 
