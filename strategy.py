@@ -582,6 +582,11 @@ class Strategy_SRSS(Strategy):
 	def combinatorial_optimization(self, assignment_set):
 		pass
 
+	def collision_aware(self):
+		pass
+
+
+		
 
 	def formation_step1(self):
 		send_data = self.get_basic_status()
