@@ -592,7 +592,7 @@ class Strategy_SRSS(Strategy):
 				if q != self.local_id:
 					v_p = p - self.local_coordinate
 					v_q = assignment_set[q] - self.mygroup_robots_coordinate[q]
-					if collision_aware(v_p, v_q):
+					if collision_aware(v_p, v_q, self.mygroup_robots_coordinate[q]):
 						w = 1
 
 			b_list[(1 - w) * b] = p
@@ -601,8 +601,22 @@ class Strategy_SRSS(Strategy):
 
 		return b_list[0][1]
 
-	def collision_aware(self, v_p, v_q):
-		pass
+	def collision_aware(self, v_p, v_q, mygroup_robots_coordinate):
+		collision_status = False
+		v_pq = v_p - v_q
+		r_pq = mygroup_robots_coordinate - self.local_coordinate
+		robots_distance = np.linalg.norm(mygroup_robots_coordinate - np.array(self.local_coordinate))
+
+		collision_angle = abs(math.atan(self.local_robot_radius / robots_distance) * (180 / math.pi))
+
+		relative_angle = abs(np.arccos(r_pq.dot(v_pq)/(np.linalg.norm(r_pq) * np.linalg.norm(v_pq))))
+
+		if relative_angle <= collision_angle:
+			collision_status = True
+		else:
+			collision_status = False
+
+		return collision_status 
 
 	def utility_function(self, p):
 		task_inherent_value = 100
