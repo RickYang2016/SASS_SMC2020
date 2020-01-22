@@ -605,7 +605,11 @@ class Strategy_SRSS(Strategy):
 		pass
 
 	def utility_function(self, p):
-		pass
+		task_inherent_value = 100
+		task_dist = np.linalg.norm(p - np.array(self.local_coordinate))
+		utility = math.pow(1 / math.exp(1), task_dist / self.local_step_size) * task_inherent_value
+
+		return utility
 		
 
 	def formation_step1(self):
