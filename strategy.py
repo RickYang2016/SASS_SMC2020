@@ -478,6 +478,8 @@ class Strategy_SRSS(Strategy):
 		# clear energy level data for future use.
 		self.global_agreement = {}
 		self.global_robots_task_distance = {}
+		self.mygroup_robots_coordinate = {}
+		self.mygroup_robots_task_coordinate = {}
 
 	# def formation_execution(self):
 	# 	# Computing the distances to the different task locations
@@ -533,6 +535,23 @@ class Strategy_SRSS(Strategy):
 		except Exception as e:
 			raise e
 
+	def check_recv_mygroup_task_coordinate(self, recv_data):
+		try:
+			recv_id = recv_data['id']
+			recv_task_id = recv_data['task_id']
+			# throw out the packet that has different task_id
+			if recv_task_id != self.local_task_id:
+				return
+			self.mygroup_robots_task_coordinate[recv_id] = recv_data['max_utility']
+			if len(self.mygroup_robots_task_coordinate) == self.global_group_num_robots:
+				return True
+			else:
+				return False
+		except KeyError:
+			pass
+		except Exception as e:
+			raise e		
+
 	# compare with quadratic assignment problem
 	def formation_execution(self):
 		# Send the coordinate to others
@@ -543,7 +562,6 @@ class Strategy_SRSS(Strategy):
 		mygroup_robots = sorted(self.mygroup_robots_coordinate.keys())
 
 		# Computing the assignment set in the different task locations
-		# dist_vector = []
 		assignment_set = {}
 
 		for i in range(self.global_group_num_robots):
@@ -552,76 +570,98 @@ class Strategy_SRSS(Strategy):
 			task_radius = self.global_task_list[self.local_task_id]['radius']
 			task_destination = task_coordinate + np.array([task_radius * math.cos(theta), task_radius * math.sin(theta)])
 			assignment_set[mygroup_robots[i]] = task_destination
-			# task_dist = np.linalg.norm(task_destination - np.array(self.local_coordinate))
-			# dist_vector.append(task_dist)
+		
+		self.local_debugger.log_local('number of tasks is %s' % str(len(assignment_set)), tag='Status')
 
 		self.local_task_destination = self.combinatorial_optimization(assignment_set)
 
-		# dist_matrix = self.global_robots_task_distance
-		# # Everyone look at the distance matrix and use the consensus queue to sequentially choose task.
-		# myindex_in_queue = 0
-		# for i in self.local_queue:
-		# 	task_chosen = dist_matrix[i].index(min(dist_matrix[i]))
-		# 	# task_chosen = dist_matrix[i].index(max(dist_matrix[i]))
-		# 	if i == self.local_id:
-		# 		myindex_in_queue = task_chosen
-		# 		break
-		# 	for j in dist_matrix:
-		# 		dist_matrix[j][task_chosen] = float('inf')
-		# 		# dist_matrix[j][task_chosen] = float('-inf')
-		# theta = (2 * math.pi) / self.global_group_num_robots * myindex_in_queue
-		# my_task_coordinate = self.global_task_list[self.local_task_id]['coordinate']
-		# my_task_radius = self.global_task_list[self.local_task_id]['radius']
-		# self.local_task_destination[0] = my_task_coordinate[0] + my_task_radius * math.cos(theta)
-		# self.local_task_destination[1] = my_task_coordinate[1] + my_task_radius * math.sin(theta)
-		
 		self.local_direction[0] = self.local_task_destination[0] - self.local_coordinate[0]
 		self.local_direction[1] = self.local_task_destination[1] - self.local_coordinate[1]
-		self.local_debugger.send_to_monitor('formation: index = ' + str(myindex_in_queue))
-		self.local_debugger.log_local('Formation End: To Position %d.' % myindex_in_queue, tag='Status')
+		self.local_debugger.log_local('task destination is %s' % str(self.local_task_destination), tag='Status')
+		# self.local_debugger.log_local('local direction is %s' % str(self.local_direction), tag='Status')
+
+		# self.local_debugger.send_to_monitor('formation: index = ' + str(myindex_in_queue))
+		# self.local_debugger.log_local('Formation End: To Position %d.' % myindex_in_queue, tag='Status')
 
 	def combinatorial_optimization(self, assignment_set):
 		b_list = {}
 
 		for p in assignment_set.values():
 			w = 0
-			b = utility_function(p)
+			b = self.utility_function(p)
+
+			# self.local_debugger.log_local('my group tasks is %s' % str(assignment_set), tag='Status')
+			# m = list(assignment_set.keys())[list(assignment_set.values()).index(p)]
+			self.local_debugger.log_local('my group tasks is %s' % str(p), tag='Status')
+
 			for q in assignment_set.keys():
 				if w == 1:
-					return
+					break
+					# return
 				if q != self.local_id:
+				# if q != list(assignment_set.keys())[list(assignment_set.values()).index(p)]:
+				# if q != self.local_id and q != list(assignment_set.keys())[list(assignment_set.values()).index(p)]:
 					v_p = p - self.local_coordinate
 					v_q = assignment_set[q] - self.mygroup_robots_coordinate[q]
-					if collision_aware(v_p, v_q, self.mygroup_robots_coordinate[q]):
-						w = 1
 
+				if self.collision_aware(v_p, v_q, self.mygroup_robots_coordinate[q]):
+					w = 1
+
+			# b_list[str(p)] = (1 - w) * b
 			b_list[(1 - w) * b] = p
+			# self.local_debugger.log_local('b_list is %s' % str(b_list), tag='Status')
 
 		b_list = sorted(b_list.items(), key = lambda item:item[0], reverse = True)
+		self.local_debugger.log_local('b_list is %s' % str(b_list), tag='Status')
+		self.local_debugger.log_local('the length of b_list is %s' % str(len(b_list)), tag='Status')
+
+		# solve confilcts with negotiation
+		end_data = self.get_basic_status()
+		send_data['task_coordinate'] = b_list[0][1]
+		send_data['task_id'] = self.local_task_id
+		self.message_communication(send_data, condition_func=self.check_recv_mygroup_task_coordinate, time_out=0.01)
+
+		for c in self.mygroup_robots_task_coordinate.values():
+			
 
 		return b_list[0][1]
 
 	def collision_aware(self, v_p, v_q, mygroup_robots_coordinate):
 		collision_status = False
 		v_pq = v_p - v_q
-		r_pq = mygroup_robots_coordinate - self.local_coordinate
+		# self.local_debugger.log_local('v_pq is %s' % str(v_pq), tag='Status')
+
+		# r_pq = mygroup_robots_coordinate - self.local_coordinate
+
+		r_pq = np.array(mygroup_robots_coordinate) - np.array(self.local_coordinate)
+
+		# self.local_debugger.log_local('r_pq is %s' % str(r_pq), tag='Status')
+
+
 		robots_distance = np.linalg.norm(mygroup_robots_coordinate - np.array(self.local_coordinate))
+
+		# self.local_debugger.log_local('robots_distance is %s' % str(robots_distance), tag='Status')
 
 		collision_angle = abs(math.atan(self.local_robot_radius / robots_distance) * (180 / math.pi))
 
-		relative_angle = abs(np.arccos(r_pq.dot(v_pq)/(np.linalg.norm(r_pq) * np.linalg.norm(v_pq))))
+		relative_angle = abs(np.arccos(r_pq.dot(v_pq)/(np.linalg.norm(r_pq) * np.linalg.norm(v_pq))) * (180 / math.pi))
+
+		# self.local_debugger.log_local('collision_angle is %s' % str(collision_angle), tag='Status')
+		# self.local_debugger.log_local('relative_angle is %s' % str(relative_angle), tag='Status')
 
 		if relative_angle <= collision_angle:
 			collision_status = True
 		else:
 			collision_status = False
 
-		return collision_status 
+		return collision_status
 
 	def utility_function(self, p):
 		task_inherent_value = 100
+
 		task_dist = np.linalg.norm(p - np.array(self.local_coordinate))
-		utility = math.pow(1 / math.exp(1), task_dist / self.local_step_size) * task_inherent_value
+
+		utility = math.pow(1 / math.exp(1), task_dist / (self.local_step_size * 100)) * task_inherent_value
 
 		return utility
 		
