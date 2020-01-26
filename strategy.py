@@ -626,27 +626,31 @@ class Strategy_SRSS(Strategy):
 		confilct_task_coordiantion = {}
 		confilct_task_coordiantion = self.find_collision_task()
 
-		if len(assignment_set) - len(confilct_task_coordiantion) < 2:
-			for task_coordinate, group_members in confilct_task_coordiantion:
-				if len(group_members) > 1 and self.local_id in group_members:
-					tmp_dir = {}
-					for member in group_members.items():
-						tmp_dir[member] = list(b_list.keys())[list(b_list.values()).index(member)]
+		for task_coordinate, group_members in confilct_task_coordiantion:
+			if len(group_members) == 1 and self.local_id in group_members:
+				robot_task_coordinate = task_coordinate
+				break
+			elif len(group_members) > 1:
+				tmp_dir = {}
+				for member in group_members.items():
+					tmp_dir[member] = list(b_list.keys())[list(b_list.values()).index(member)]
 
-					# if current robot's utiity is max in the group then assign the task to the robot
-					if self.local_id == list(tmp_dir.keys())[list(tmp_dir.values()).index(max(tmp_dir.values()))]:
-						robot_task_coordinate = eval(task_coordinate)
-						break
-					# if only two robots have conflict and current robot's utility is not the max, then assign the last assignment to current robot
-					elif len(confilct_task_coordiantion) == len(assignment_set) - 1:
-						robot_task_coordinate = 
-						break
-				elif len(group_members) == 1 and self.local_id in group_members:
-					robot_task_coordinate = task_coordinate
+				# if current robot's utiity is max in the group then assign the task to the robot
+				if self.local_id == list(tmp_dir.keys())[list(tmp_dir.values()).index(max(tmp_dir.values()))]:
+					robot_task_coordinate = eval(task_coordinate)
 					break
-		# otherwise reassign the reast assignment according to the distance				
-		else:
-			suspending_list.append(self.local_id)
+				# if only two robots have conflict and current robot's utility is not the max, then assign the last assignment to current robot
+				elif len(confilct_task_coordiantion) == len(assignment_set) - 1:
+					robot_task_coordinate = 
+					break
+				# otherwise reassign the reast assignment according to the distance to the rest robots
+				else:
+					suspending_list.append()
+
+
+
+
+
 
 
 		return robot_task_coordinate
