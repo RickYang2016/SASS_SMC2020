@@ -9,6 +9,7 @@ import os
 import math
 import sys
 import random
+import collections
 import socket
 import numpy as np
 from shapely.geometry import Polygon
@@ -542,7 +543,7 @@ class Strategy_SRSS(Strategy):
 			# throw out the packet that has different task_id
 			if recv_task_id != self.local_task_id:
 				return
-			self.mygroup_robots_task_coordinate[recv_id] = recv_data['max_utility']
+			self.mygroup_robots_task_coordinate[recv_id] = recv_data['task_coordinate']
 			if len(self.mygroup_robots_task_coordinate) == self.global_group_num_robots:
 				return True
 			else:
@@ -621,10 +622,49 @@ class Strategy_SRSS(Strategy):
 		send_data['task_id'] = self.local_task_id
 		self.message_communication(send_data, condition_func=self.check_recv_mygroup_task_coordinate, time_out=0.01)
 
-		for c in self.mygroup_robots_task_coordinate.values():
-			
+		robot_task_coordinate = []
+		confilct_task_coordiantion = {}
+		confilct_task_coordiantion = self.find_collision_task()
 
-		return b_list[0][1]
+		for task_coordinate, group_members in confilct_task_coordiantion:
+			if len(group_members) > 1 and self.local_id in group_members:
+				tmp_dir = {}
+				for member in group_members.items():
+					tmp_dir[member] = list(b_list.keys())[list(b_list.values()).index(member)]
+
+				# if current robot's utiity is max in the group then assign the task to the robot
+				if self.local_id == list(tmp_dir.keys())[list(tmp_dir.values()).index(max(tmp_dir.values()))]:
+					robot_task_coordinate = eval(task_coordinate)
+					break
+				# if only two robots have conflict and current robot's utility is not the max, then assign the last assignment to current robot
+				elif len(confilct_task_coordiantion) == len(assignment_set) - 1:
+					robot_task_coordinate = 
+				# otherwise reassign the reast assignment according to the distance
+				else:
+
+
+			elif len(group_members) == 1 and self.local_id in group_members:
+				robot_task_coordinate = task_coordinate
+				break
+
+		return robot_task_coordinate
+
+	def find_collision_task(self):
+		b = collections.defaultdict(list)
+
+		for k, v in self.mygroup_robots_task_coordinate.items():
+			for m, n in self.mygroup_robots_task_coordinate.items():
+				if v == n and k != m:
+					b[str(v)].append(m)
+				else:
+					b[str(v)].append(k)
+
+		g = {}
+
+		for i, j in b.items():
+			g[i] = [ i for i in set(j)]
+
+		return g
 
 	def collision_aware(self, v_p, v_q, mygroup_robots_coordinate):
 		collision_status = False
