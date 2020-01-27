@@ -624,15 +624,22 @@ class Strategy_SRSS(Strategy):
 
 		robot_task_coordinate = []
 		confilct_task_coordiantion = {}
+		mygroup_robots_task_list = []
+		suspend_robots_list = []
 		confilct_task_coordiantion = self.find_collision_task()
+		confilct_task_list  = list(confilct_task_coordiantion.keys())
+		rest_tasks = eval(list(set(mygroup_robots_task_list).difference(set(confilct_task_list))))
 
-		for task_coordinate, group_members in confilct_task_coordiantion:
+		for tmp in assignment_set.values():
+			mygroup_robots_task_list.append(str(tmp))
+
+		for task_coordinate, group_members in confilct_task_coordiantion.items():
 			if len(group_members) == 1 and self.local_id in group_members:
 				robot_task_coordinate = task_coordinate
 				break
 			elif len(group_members) > 1:
 				tmp_dir = {}
-				for member in group_members.items():
+				for member in group_members:
 					tmp_dir[member] = list(b_list.keys())[list(b_list.values()).index(member)]
 
 				# if current robot's utiity is max in the group then assign the task to the robot
@@ -640,16 +647,15 @@ class Strategy_SRSS(Strategy):
 					robot_task_coordinate = eval(task_coordinate)
 					break
 				# if only two robots have conflict and current robot's utility is not the max, then assign the last assignment to current robot
-				elif len(confilct_task_coordiantion) == len(assignment_set) - 1:
-					robot_task_coordinate = 
+				elif len(confilct_task_coordiantion) == len(assignment_set) - 1 and self.local_id in tmp_dir.keys():
+					robot_task_coordinate = eval(list(set(mygroup_robots_task_list).difference(set(confilct_task_list))))
 					break
-				# otherwise reassign the reast assignment according to the distance to the rest robots
 				else:
-					suspending_list.append()
+					rest_robots = eval(list(set(group_members).difference(set(list(tmp_dir.keys())[list(tmp_dir.values()).index(max(tmp_dir.values()))]))))
+					suspend_robots_list = list(set(suspend_robots_list).union(set(rest_robots)))
 
-
-
-
+		# otherwise reassign the reast assignment according to the distance and energy level to the rest robots
+		
 
 
 
