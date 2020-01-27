@@ -480,7 +480,8 @@ class Strategy_SRSS(Strategy):
 		self.global_agreement = {}
 		self.global_robots_task_distance = {}
 		self.mygroup_robots_coordinate = {}
-		self.mygroup_robots_task_coordinate = {}
+		self.mygroup_robots_utility = {}
+		# self.mygroup_robots_task_coordinate = {}
 
 	# def formation_execution(self):
 	# 	# Computing the distances to the different task locations
@@ -536,22 +537,40 @@ class Strategy_SRSS(Strategy):
 		except Exception as e:
 			raise e
 
-	def check_recv_mygroup_task_coordinate(self, recv_data):
+	def check_recv_mygroup_utility(self, recv_data):
 		try:
 			recv_id = recv_data['id']
 			recv_task_id = recv_data['task_id']
 			# throw out the packet that has different task_id
 			if recv_task_id != self.local_task_id:
 				return
-			self.mygroup_robots_task_coordinate[recv_id] = recv_data['task_coordinate']
-			if len(self.mygroup_robots_task_coordinate) == self.global_group_num_robots:
+			self.mygroup_robots_utility[recv_id] = recv_data['utility']
+			if len(self.mygroup_robots_utility) == self.global_group_num_robots:
+				# self.local_debugger.log_local('self.mygroup_robots_utility is %s' % str(self.mygroup_robots_utility), tag='Status')
 				return True
 			else:
 				return False
 		except KeyError:
 			pass
 		except Exception as e:
-			raise e		
+			raise e
+
+	# def check_recv_mygroup_task_coordinate(self, recv_data):
+	# 	try:
+	# 		recv_id = recv_data['id']
+	# 		recv_task_id = recv_data['task_id']
+	# 		# throw out the packet that has different task_id
+	# 		if recv_task_id != self.local_task_id:
+	# 			return
+	# 		self.mygroup_robots_task_coordinate[recv_id] = recv_data['task_coordinate']
+	# 		if len(self.mygroup_robots_task_coordinate) == self.global_group_num_robots:
+	# 			return True
+	# 		else:
+	# 			return False
+	# 	except KeyError:
+	# 		pass
+	# 	except Exception as e:
+	# 		raise e		
 
 	# compare with quadratic assignment problem
 	def formation_execution(self):
@@ -596,7 +615,7 @@ class Strategy_SRSS(Strategy):
 			self.local_debugger.log_local('my group tasks is %s' % str(p), tag='Status')
 
 			for q in assignment_set.keys():
-				if w == 1:
+				if w == 0.5:
 					break
 					# return
 				if q != self.local_id:
@@ -605,78 +624,176 @@ class Strategy_SRSS(Strategy):
 					v_p = p - self.local_coordinate
 					v_q = assignment_set[q] - self.mygroup_robots_coordinate[q]
 
-				if self.collision_aware(v_p, v_q, self.mygroup_robots_coordinate[q]):
-					w = 1
+					if self.collision_aware(v_p, v_q, self.mygroup_robots_coordinate[q]):
+						w = 0.5
 
 			# b_list[str(p)] = (1 - w) * b
 			b_list[(1 - w) * b] = p
 			# self.local_debugger.log_local('b_list is %s' % str(b_list), tag='Status')
 
-		b_list = sorted(b_list.items(), key = lambda item:item[0], reverse = True)
+		# b_list = sorted(b_list.items(), key = lambda item:item[0], reverse = True)
 		self.local_debugger.log_local('b_list is %s' % str(b_list), tag='Status')
 		self.local_debugger.log_local('the length of b_list is %s' % str(len(b_list)), tag='Status')
 
-		# solve confilcts with negotiation
-		end_data = self.get_basic_status()
-		send_data['task_coordinate'] = b_list[0][1]
+		tmp_utility = []
+		tmp_coordinate = []
+		unify_info = []	
+
+		for k, v in b_list.items():
+			tmp_utility.append(k)
+			tmp_coordinate.append(v)
+
+		unify_info.append(tmp_coordinate)
+		unify_info.append(tmp_utility)
+
+		# build a utility matrix selecting the tasks according to the max utility of robots in each task
+		# Send the coordinate to others
+		send_data = self.get_basic_status()
+		send_data['utility'] = unify_info
 		send_data['task_id'] = self.local_task_id
-		self.message_communication(send_data, condition_func=self.check_recv_mygroup_task_coordinate, time_out=0.01)
 
-		robot_task_coordinate = []
-		confilct_task_coordiantion = {}
-		mygroup_robots_task_list = []
-		suspend_robots_list = []
-		confilct_task_coordiantion = self.find_collision_task()
-		confilct_task_list  = list(confilct_task_coordiantion.keys())
-		rest_tasks = eval(list(set(mygroup_robots_task_list).difference(set(confilct_task_list))))
+		self.message_communication(send_data, condition_func=self.check_recv_mygroup_utility, time_out=0.01)
 
-		for tmp in assignment_set.values():
-			mygroup_robots_task_list.append(str(tmp))
+		self.local_debugger.log_local('mygroup_robots_utility is %s' % str(self.mygroup_robots_utility), tag='Status')
 
-		for task_coordinate, group_members in confilct_task_coordiantion.items():
-			if len(group_members) == 1 and self.local_id in group_members:
-				robot_task_coordinate = task_coordinate
+
+		utility_matrix = self.mygroup_robots_utility
+		# Everyone look at the utility matrix and each task choose the robot with max utility
+		myindex_in_queue = 0
+		for i in self.local_queue:
+			task_chosen = utility_matrix[i][1].index(max(utility_matrix[i][1]))
+			# task_chosen = dist_matrix[i].index(min(dist_matrix[i]))
+			if i == self.local_id:
+				myindex_in_queue = task_chosen
+				robot_task_coordinate = utility_matrix[i][0][task_chosen]
 				break
-			elif len(group_members) > 1:
-				tmp_dir = {}
-				for member in group_members:
-					tmp_dir[member] = list(b_list.keys())[list(b_list.values()).index(member)]
+			for j in dist_matrix:
+				utility_matrix[j][1][task_chosen] = float('-inf')
+				# dist_matrix[j][task_chosen] = float('-inf')
 
-				# if current robot's utiity is max in the group then assign the task to the robot
-				if self.local_id == list(tmp_dir.keys())[list(tmp_dir.values()).index(max(tmp_dir.values()))]:
-					robot_task_coordinate = eval(task_coordinate)
-					break
-				# if only two robots have conflict and current robot's utility is not the max, then assign the last assignment to current robot
-				elif len(confilct_task_coordiantion) == len(assignment_set) - 1 and self.local_id in tmp_dir.keys():
-					robot_task_coordinate = eval(list(set(mygroup_robots_task_list).difference(set(confilct_task_list))))
-					break
-				else:
-					rest_robots = eval(list(set(group_members).difference(set(list(tmp_dir.keys())[list(tmp_dir.values()).index(max(tmp_dir.values()))]))))
-					suspend_robots_list = list(set(suspend_robots_list).union(set(rest_robots)))
+		# self.local_debugger.log_local('robot_task_coordinate is %s' % str(robot_task_coordinate), tag='Status')
 
-		# otherwise reassign the reast assignment according to the distance and energy level to the rest robots
-		
 
+
+		# myindex_in_queue = 0
+		# for i in self.local_queue:
+		# 	task_chosen = dist_matrix[i].index(min(dist_matrix[i]))
+		# 	# task_chosen = dist_matrix[i].index(max(dist_matrix[i]))
+		# 	if i == self.local_id:
+		# 		myindex_in_queue = task_chosen
+		# 		break
+		# 	for j in dist_matrix:
+		# 		dist_matrix[j][task_chosen] = float('inf')
+		# 		# dist_matrix[j][task_chosen] = float('-inf')
+		# theta = (2 * math.pi) / self.global_group_num_robots * myindex_in_queue
+		# my_task_coordinate = self.global_task_list[self.local_task_id]['coordinate']
+		# my_task_radius = self.global_task_list[self.local_task_id]['radius']
+		# self.local_task_destination[0] = my_task_coordinate[0] + my_task_radius * math.cos(theta)
+		# self.local_task_destination[1] = my_task_coordinate[1] + my_task_radius * math.sin(theta)
+		# self.local_direction[0] = self.local_task_destination[0] - self.local_coordinate[0]
+		# self.local_direction[1] = self.local_task_destination[1] - self.local_coordinate[1]
+		# self.local_debugger.send_to_monitor('formation: index = ' + str(myindex_in_queue))
+		# self.local_debugger.log_local('Formation End: To Position %d.' % myindex_in_queue, tag='Status')	
 
 
 		return robot_task_coordinate
 
-	def find_collision_task(self):
-		b = collections.defaultdict(list)
 
-		for k, v in self.mygroup_robots_task_coordinate.items():
-			for m, n in self.mygroup_robots_task_coordinate.items():
-				if v == n and k != m:
-					b[str(v)].append(m)
-				else:
-					b[str(v)].append(k)
 
-		g = {}
 
-		for i, j in b.items():
-			g[i] = [ i for i in set(j)]
+	# def combinatorial_optimization(self, assignment_set):
+	# 	b_list = {}
 
-		return g
+	# 	for p in assignment_set.values():
+	# 		w = 0
+	# 		b = self.utility_function(p)
+
+	# 		# self.local_debugger.log_local('my group tasks is %s' % str(assignment_set), tag='Status')
+	# 		# m = list(assignment_set.keys())[list(assignment_set.values()).index(p)]
+	# 		self.local_debugger.log_local('my group tasks is %s' % str(p), tag='Status')
+
+	# 		for q in assignment_set.keys():
+	# 			if w == 1:
+	# 				break
+	# 				# return
+	# 			if q != self.local_id:
+	# 			# if q != list(assignment_set.keys())[list(assignment_set.values()).index(p)]:
+	# 			# if q != self.local_id and q != list(assignment_set.keys())[list(assignment_set.values()).index(p)]:
+	# 				v_p = p - self.local_coordinate
+	# 				v_q = assignment_set[q] - self.mygroup_robots_coordinate[q]
+
+	# 			if self.collision_aware(v_p, v_q, self.mygroup_robots_coordinate[q]):
+	# 				w = 1
+
+	# 		# b_list[str(p)] = (1 - w) * b
+	# 		b_list[(1 - w) * b] = p
+	# 		# self.local_debugger.log_local('b_list is %s' % str(b_list), tag='Status')
+
+	# 	b_list = sorted(b_list.items(), key = lambda item:item[0], reverse = True)
+	# 	self.local_debugger.log_local('b_list is %s' % str(b_list), tag='Status')
+	# 	self.local_debugger.log_local('the length of b_list is %s' % str(len(b_list)), tag='Status')
+
+	# 	# solve confilcts with negotiation
+	# 	end_data = self.get_basic_status()
+	# 	send_data['task_coordinate'] = b_list[0][1]
+	# 	send_data['task_id'] = self.local_task_id
+	# 	self.message_communication(send_data, condition_func=self.check_recv_mygroup_task_coordinate, time_out=0.01)
+
+	# 	robot_task_coordinate = []
+	# 	confilct_task_coordiantion = {}
+	# 	mygroup_robots_task_list = []
+	# 	suspend_robots_list = []
+	# 	confilct_task_coordiantion = self.find_collision_task()
+	# 	confilct_task_list  = list(confilct_task_coordiantion.keys())
+	# 	rest_tasks = eval(list(set(mygroup_robots_task_list).difference(set(confilct_task_list))))
+
+	# 	for tmp in assignment_set.values():
+	# 		mygroup_robots_task_list.append(str(tmp))
+
+	# 	for task_coordinate, group_members in confilct_task_coordiantion.items():
+	# 		if len(group_members) == 1 and self.local_id in group_members:
+	# 			robot_task_coordinate = task_coordinate
+	# 			break
+	# 		elif len(group_members) > 1:
+	# 			tmp_dir = {}
+	# 			for member in group_members:
+	# 				tmp_dir[member] = list(b_list.keys())[list(b_list.values()).index(member)]
+
+	# 			# if current robot's utiity is max in the group then assign the task to the robot
+	# 			if self.local_id == list(tmp_dir.keys())[list(tmp_dir.values()).index(max(tmp_dir.values()))]:
+	# 				robot_task_coordinate = eval(task_coordinate)
+	# 				break
+	# 			# if only two robots have conflict and current robot's utility is not the max, then assign the last assignment to current robot
+	# 			elif len(confilct_task_coordiantion) == len(assignment_set) - 1 and self.local_id in tmp_dir.keys():
+	# 				robot_task_coordinate = eval(list(set(mygroup_robots_task_list).difference(set(confilct_task_list))))
+	# 				break
+	# 			else:
+	# 				rest_robots = eval(list(set(group_members).difference(set(list(tmp_dir.keys())[list(tmp_dir.values()).index(max(tmp_dir.values()))]))))
+	# 				suspend_robots_list = list(set(suspend_robots_list).union(set(rest_robots)))
+
+	# 	# otherwise reassign the reast assignment according to the distance and energy level to the rest robots
+
+
+
+
+	# 	return robot_task_coordinate
+
+	# def find_collision_task(self):
+	# 	b = collections.defaultdict(list)
+
+	# 	for k, v in self.mygroup_robots_task_coordinate.items():
+	# 		for m, n in self.mygroup_robots_task_coordinate.items():
+	# 			if v == n and k != m:
+	# 				b[str(v)].append(m)
+	# 			else:
+	# 				b[str(v)].append(k)
+
+	# 	g = {}
+
+	# 	for i, j in b.items():
+	# 		g[i] = [ i for i in set(j)]
+
+	# 	return g
 
 	def collision_aware(self, v_p, v_q, mygroup_robots_coordinate):
 		collision_status = False
