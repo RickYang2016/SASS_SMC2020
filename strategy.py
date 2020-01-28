@@ -58,6 +58,7 @@ class Strategy_SRSS(Strategy):
 	global_time_step = 0				# For better logging and collecting data
 
 	mygroup_robots_coordinate = {}		# Used in formation tasks assignment using quadratic assignment method
+	mygroup_robots_utility = {}			# Used in formation tasks assignment assignment caculation
 
 	local_debugger = None
 
@@ -524,10 +525,12 @@ class Strategy_SRSS(Strategy):
 		try:
 			recv_id = recv_data['id']
 			recv_task_id = recv_data['task_id']
+
 			# throw out the packet that has different task_id
 			if recv_task_id != self.local_task_id:
 				return
 			self.mygroup_robots_coordinate[recv_id] = recv_data['coordinate']
+
 			if len(self.mygroup_robots_coordinate) == self.global_group_num_robots:
 				return True
 			else:
@@ -541,12 +544,14 @@ class Strategy_SRSS(Strategy):
 		try:
 			recv_id = recv_data['id']
 			recv_task_id = recv_data['task_id']
+
 			# throw out the packet that has different task_id
 			if recv_task_id != self.local_task_id:
 				return
+
 			self.mygroup_robots_utility[recv_id] = recv_data['utility']
+
 			if len(self.mygroup_robots_utility) == self.global_group_num_robots:
-				# self.local_debugger.log_local('self.mygroup_robots_utility is %s' % str(self.mygroup_robots_utility), tag='Status')
 				return True
 			else:
 				return False
@@ -578,6 +583,7 @@ class Strategy_SRSS(Strategy):
 		send_data = self.get_basic_status()
 		send_data['coordinate'] = self.local_coordinate
 		send_data['task_id'] = self.local_task_id
+
 		self.message_communication(send_data, condition_func=self.check_recv_mygroup_coordinate, time_out=0.01)
 		mygroup_robots = sorted(self.mygroup_robots_coordinate.keys())
 
@@ -615,7 +621,7 @@ class Strategy_SRSS(Strategy):
 			self.local_debugger.log_local('my group tasks is %s' % str(p), tag='Status')
 
 			for q in assignment_set.keys():
-				if w == 0.5:
+				if w == 1:
 					break
 					# return
 				if q != self.local_id:
@@ -625,15 +631,17 @@ class Strategy_SRSS(Strategy):
 					v_q = assignment_set[q] - self.mygroup_robots_coordinate[q]
 
 					if self.collision_aware(v_p, v_q, self.mygroup_robots_coordinate[q]):
-						w = 0.5
+						w = 1
 
 			# b_list[str(p)] = (1 - w) * b
 			b_list[(1 - w) * b] = p
 			# self.local_debugger.log_local('b_list is %s' % str(b_list), tag='Status')
 
 		# b_list = sorted(b_list.items(), key = lambda item:item[0], reverse = True)
-		self.local_debugger.log_local('b_list is %s' % str(b_list), tag='Status')
-		self.local_debugger.log_local('the length of b_list is %s' % str(len(b_list)), tag='Status')
+		# self.local_debugger.log_local('b_list is %s' % str(b_list), tag='Status')
+
+
+		# self.local_debugger.log_local('the length of b_list is %s' % str(len(b_list)), tag='Status')
 
 		tmp_utility = []
 		tmp_coordinate = []
@@ -651,6 +659,7 @@ class Strategy_SRSS(Strategy):
 		send_data = self.get_basic_status()
 		send_data['utility'] = unify_info
 		send_data['task_id'] = self.local_task_id
+		
 
 		self.message_communication(send_data, condition_func=self.check_recv_mygroup_utility, time_out=0.01)
 
@@ -660,8 +669,11 @@ class Strategy_SRSS(Strategy):
 		utility_matrix = self.mygroup_robots_utility
 		# Everyone look at the utility matrix and each task choose the robot with max utility
 		myindex_in_queue = 0
+		self.local_debugger.log_local('self.local_queue is %s' % str(self.local_queue), tag='Status')
+
 		for i in self.local_queue:
 			task_chosen = utility_matrix[i][1].index(max(utility_matrix[i][1]))
+			self.local_debugger.log_local('task_chosen is %s' % str(task_chosen), tag='Status')
 			# task_chosen = dist_matrix[i].index(min(dist_matrix[i]))
 			if i == self.local_id:
 				myindex_in_queue = task_chosen
@@ -671,7 +683,7 @@ class Strategy_SRSS(Strategy):
 				utility_matrix[j][1][task_chosen] = float('-inf')
 				# dist_matrix[j][task_chosen] = float('-inf')
 
-		# self.local_debugger.log_local('robot_task_coordinate is %s' % str(robot_task_coordinate), tag='Status')
+		self.local_debugger.log_local('robot_task_coordinate is %s' % str(robot_task_coordinate), tag='Status')
 
 
 
@@ -694,6 +706,7 @@ class Strategy_SRSS(Strategy):
 		# self.local_direction[1] = self.local_task_destination[1] - self.local_coordinate[1]
 		# self.local_debugger.send_to_monitor('formation: index = ' + str(myindex_in_queue))
 		# self.local_debugger.log_local('Formation End: To Position %d.' % myindex_in_queue, tag='Status')	
+
 
 
 		return robot_task_coordinate

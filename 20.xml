@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scenario compiled="true" name="20.xml" version="1.0" xmlns="nmfPlan" xmlns:CORE="coreSpecific">
   <network id="wlan21" name="wlan21">
-    <point lat="47.5785473583" lon="-122.103289734" type="gps"/>
+    <point lat="47.5785878443" lon="-122.103289043" type="gps"/>
     <type>wireless</type>
     <alias domain="COREID">21</alias>
     <member type="interface">n1/eth0</member>
@@ -64,14 +64,7 @@
       <address type="IPv6">2001::1/128</address>
     </interface>
     <alias domain="COREID">1</alias>
-    <point lat="47.5730808329" lon="-122.13132555" type="gps"/>
-    <CORE:services name="n1">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5731213192" lon="-122.13132488" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n2" name="n2">
@@ -84,14 +77,7 @@
       <address type="IPv6">2001::2/128</address>
     </interface>
     <alias domain="COREID">2</alias>
-    <point lat="47.5728270315" lon="-122.129893738" type="gps"/>
-    <CORE:services name="n2">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5728675178" lon="-122.129893067" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n3" name="n3">
@@ -104,14 +90,7 @@
       <address type="IPv6">2001::3/128</address>
     </interface>
     <alias domain="COREID">3</alias>
-    <point lat="47.569518835" lon="-122.129709216" type="gps"/>
-    <CORE:services name="n3">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5695593214" lon="-122.129708545" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n4" name="n4">
@@ -124,14 +103,7 @@
       <address type="IPv6">2001::4/128</address>
     </interface>
     <alias domain="COREID">4</alias>
-    <point lat="47.5749159094" lon="-122.131255308" type="gps"/>
-    <CORE:services name="n4">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5749563957" lon="-122.131254638" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n5" name="n5">
@@ -144,14 +116,7 @@
       <address type="IPv6">2001::5/128</address>
     </interface>
     <alias domain="COREID">5</alias>
-    <point lat="47.5747166938" lon="-122.129902324" type="gps"/>
-    <CORE:services name="n5">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.57475718" lon="-122.129901653" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n6" name="n6">
@@ -164,14 +129,7 @@
       <address type="IPv6">2001::6/128</address>
     </interface>
     <alias domain="COREID">6</alias>
-    <point lat="47.5777128284" lon="-122.12987263" type="gps"/>
-    <CORE:services name="n6">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5777533147" lon="-122.129871959" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n7" name="n7">
@@ -184,14 +142,7 @@
       <address type="IPv6">2001::7/128</address>
     </interface>
     <alias domain="COREID">7</alias>
-    <point lat="47.5706535107" lon="-122.129830023" type="gps"/>
-    <CORE:services name="n7">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.570693997" lon="-122.129829352" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n8" name="n8">
@@ -204,14 +155,7 @@
       <address type="IPv6">2001::8/128</address>
     </interface>
     <alias domain="COREID">8</alias>
-    <point lat="47.5699767314" lon="-122.131356939" type="gps"/>
-    <CORE:services name="n8">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5700172178" lon="-122.13135627" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n9" name="n9">
@@ -224,14 +168,7 @@
       <address type="IPv6">2001::20/128</address>
     </interface>
     <alias domain="COREID">9</alias>
-    <point lat="47.5720007451" lon="-122.131283579" type="gps"/>
-    <CORE:services name="n9">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5720412314" lon="-122.13128291" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n10" name="n10">
@@ -244,14 +181,7 @@
       <address type="IPv6">2001::9/128</address>
     </interface>
     <alias domain="COREID">10</alias>
-    <point lat="47.5739485135" lon="-122.130054664" type="gps"/>
-    <CORE:services name="n10">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5739889997" lon="-122.130053994" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n11" name="n11">
@@ -264,14 +194,7 @@
       <address type="IPv6">2001::12/128</address>
     </interface>
     <alias domain="COREID">11</alias>
-    <point lat="47.5739844227" lon="-122.131230825" type="gps"/>
-    <CORE:services name="n11">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.574024909" lon="-122.131230155" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n12" name="n12">
@@ -284,14 +207,7 @@
       <address type="IPv6">2001::11/128</address>
     </interface>
     <alias domain="COREID">12</alias>
-    <point lat="47.5688834496" lon="-122.131355074" type="gps"/>
-    <CORE:services name="n12">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.568923936" lon="-122.131354405" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n13" name="n13">
@@ -304,14 +220,7 @@
       <address type="IPv6">2001::10/128</address>
     </interface>
     <alias domain="COREID">13</alias>
-    <point lat="47.5757954198" lon="-122.129764778" type="gps"/>
-    <CORE:services name="n13">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.575835906" lon="-122.129764107" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n14" name="n14">
@@ -324,14 +233,7 @@
       <address type="IPv6">2001::19/128</address>
     </interface>
     <alias domain="COREID">14</alias>
-    <point lat="47.5759414109" lon="-122.131218399" type="gps"/>
-    <CORE:services name="n14">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5759818971" lon="-122.131217729" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n15" name="n15">
@@ -344,14 +246,7 @@
       <address type="IPv6">2001::18/128</address>
     </interface>
     <alias domain="COREID">15</alias>
-    <point lat="47.5769035572" lon="-122.129945877" type="gps"/>
-    <CORE:services name="n15">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5769440435" lon="-122.129945206" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n16" name="n16">
@@ -364,14 +259,7 @@
       <address type="IPv6">2001::14/128</address>
     </interface>
     <alias domain="COREID">16</alias>
-    <point lat="47.5777895285" lon="-122.131088093" type="gps"/>
-    <CORE:services name="n16">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5778300148" lon="-122.131087423" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n17" name="n17">
@@ -384,14 +272,7 @@
       <address type="IPv6">2001::13/128</address>
     </interface>
     <alias domain="COREID">17</alias>
-    <point lat="47.5717339017" lon="-122.129911846" type="gps"/>
-    <CORE:services name="n17">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.571774388" lon="-122.129911175" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n18" name="n18">
@@ -404,14 +285,7 @@
       <address type="IPv6">2001::17/128</address>
     </interface>
     <alias domain="COREID">18</alias>
-    <point lat="47.5709352097" lon="-122.131380977" type="gps"/>
-    <CORE:services name="n18">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.570975696" lon="-122.131380307" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n19" name="n19">
@@ -424,14 +298,7 @@
       <address type="IPv6">2001::16/128</address>
     </interface>
     <alias domain="COREID">19</alias>
-    <point lat="47.5686023557" lon="-122.129883943" type="gps"/>
-    <CORE:services name="n19">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.568642842" lon="-122.129883272" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n20" name="n20">
@@ -444,32 +311,43 @@
       <address type="IPv6">2001::15/128</address>
     </interface>
     <alias domain="COREID">20</alias>
-    <point lat="47.5768848819" lon="-122.131043222" type="gps"/>
-    <CORE:services name="n20">
-      <service name="zebra" startup_idx="35"/>
-      <service name="OSPFv3MDR" startup_idx="40"/>
-      <service name="vtysh" startup_idx="45"/>
-      <service name="IPForward" startup_idx="5"/>
-      <service name="MyService" startup_idx="50"/>
-    </CORE:services>
+    <point lat="47.5769253682" lon="-122.131042553" type="gps"/>
     <CORE:presentation icon="/home/rick/Documents/research/SRSS/thumbnail_ugv3_40.png"/>
   </router>
   <router id="n22" name="n22">
     <type domain="CORE">mdr</type>
     <alias domain="COREID">22</alias>
-    <point lat="47.5785490733" lon="-122.103509119" type="gps"/>
+    <point lat="47.5785895593" lon="-122.103508428" type="gps"/>
+    <CORE:services name="n22">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+    </CORE:services>
     <CORE:presentation icon="mdr.gif"/>
   </router>
   <router id="n23" name="n23">
     <type domain="CORE">mdr</type>
     <alias domain="COREID">23</alias>
-    <point lat="47.578521615" lon="-122.103449748" type="gps"/>
+    <point lat="47.5785621009" lon="-122.103449056" type="gps"/>
+    <CORE:services name="n23">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+    </CORE:services>
     <CORE:presentation icon="mdr.gif"/>
   </router>
   <router id="n24" name="n24">
     <type domain="CORE">mdr</type>
     <alias domain="COREID">24</alias>
-    <point lat="47.5785358898" lon="-122.103549238" type="gps"/>
+    <point lat="47.5785763757" lon="-122.103548547" type="gps"/>
+    <CORE:services name="n24">
+      <service name="zebra" startup_idx="35"/>
+      <service name="OSPFv3MDR" startup_idx="40"/>
+      <service name="vtysh" startup_idx="45"/>
+      <service name="IPForward" startup_idx="5"/>
+    </CORE:services>
     <CORE:presentation icon="mdr.gif"/>
   </router>
   <CORE:defaultservices>
@@ -478,20 +356,7 @@
       <service name="OSPFv3MDR"/>
       <service name="vtysh"/>
       <service name="IPForward"/>
-    </device>
-    <device type="router">
-      <service name="zebra"/>
-      <service name="OSPFv2"/>
-      <service name="OSPFv3"/>
-      <service name="vtysh"/>
-      <service name="IPForward"/>
-    </device>
-    <device type="host">
-      <service name="DefaultRoute"/>
-      <service name="SSH"/>
-    </device>
-    <device type="PC">
-      <service name="DefaultRoute"/>
+      <service name="MyService"/>
     </device>
   </CORE:defaultservices>
   <CORE:sessionconfig>
