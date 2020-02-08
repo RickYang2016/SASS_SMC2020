@@ -1,0 +1,750 @@
+2020-02-08_11:48:50.774[Status]Start.
+2020-02-08_11:48:50.775[Battery Energy]109.00
+2020-02-08_11:48:51.879[Battery Energy]108.96
+2020-02-08_11:48:52.980[Battery Energy]108.92
+2020-02-08_11:48:54.081[Battery Energy]108.88
+2020-02-08_11:48:55.182[Battery Energy]108.84
+2020-02-08_11:48:56.283[Task]A New Task Released.
+2020-02-08_11:48:56.283[Battery Energy]108.80
+2020-02-08_11:48:56.283[Status]Selection Start.
+2020-02-08_11:49:00.230[Status]Selection End: Do Task 0.
+2020-02-08_11:49:00.348[Battery Energy]106.06
+2020-02-08_11:49:00.349[Status]Formation Start.
+2020-02-08_11:49:00.483[Status]number of tasks is 7
+2020-02-08_11:49:00.483[Status]my group tasks is [ 525.  475.]
+2020-02-08_11:49:00.484[Status]my group tasks is [ 449.69796037  631.36629649]
+2020-02-08_11:49:00.487[Status]my group tasks is [ 280.49581321  669.98558244]
+2020-02-08_11:49:00.489[Status]my group tasks is [ 144.80622642  561.77674782]
+2020-02-08_11:49:00.495[Status]my group tasks is [ 144.80622642  388.22325218]
+2020-02-08_11:49:00.496[Status]my group tasks is [ 280.49581321  280.01441756]
+2020-02-08_11:49:00.497[Status]my group tasks is [ 449.69796037  318.63370351]
+2020-02-08_11:49:00.561[Status]mygroup_robots_utility is {1: [32.34270563257427, 33.015447405333305, 36.41183291399482, 37.76677699745089, 43.21931157034518, 44.911432074896304, 31.224083421741376], 2: [33.578883331079304, 34.777275466672336, 35.08180709733934, 38.70376869291566, 39.3166064929303, 90.62852086462907, 46.21056593511067], 3: [36.241101572692, 86.32551689736214, 31.79644913093721, 36.28951599327828, 43.10702925605191, 30.335610740626677, 31.82063023331188], 4: [32.75811286405169, 33.75912853365558, 39.90052519340955, 60.242023534647004, 76.66656014195594, 30.451029072349435, 44.482232719450714], 5: [65.23329504061428, 34.24748648342535, 39.42575616318219, 72.27005166467508, 42.527489452626114, 93.58940092670363, 31.995810039765892], 6: [67.66432306200323, 37.563839888011174, 26.87879849395251, 27.766668004073203, 28.93479770700928, 78.9564904347584, 31.587917910348555], 7: [32.819154274475785, 32.13595375241445, 36.38948017615555, 46.830533103974645, 68.62547615919549, 42.82618475323189, 78.81070420220388]}
+2020-02-08_11:49:00.564[Status]self.local_queue is [2, 1, 3, 4, 5, 6, 7]
+2020-02-08_11:49:00.565[Status]task_chosen index is 5
+2020-02-08_11:49:00.565[Status]task_chosen index is 4
+2020-02-08_11:49:00.565[Status]task_chosen index is 1
+2020-02-08_11:49:00.566[Status]task_chosen index is 3
+2020-02-08_11:49:00.566[Status]task_chosen index is 0
+2020-02-08_11:49:00.566[Status]task_chosen index is 6
+2020-02-08_11:49:00.566[Status]task_chosen index is 2
+2020-02-08_11:49:00.566[Status]myindex_in_queue is 2
+2020-02-08_11:49:00.566[Status]task destination is [280.4958132087371, 669.9855824363647]
+2020-02-08_11:49:00.670[Battery Energy]105.89
+2020-02-08_11:49:00.670[Status]Routing Start.
+2020-02-08_11:49:00.840[Status]{'coordinate': [141.58821284619899, 628.8401011277743], 'id': 7}
+2020-02-08_11:49:00.840[Status]Routing 1: Walk: 1
+2020-02-08_11:49:00.941[Battery Energy]105.68
+2020-02-08_11:49:00.941[Status]Routing Start.
+2020-02-08_11:49:01.178[Status]{'coordinate': [151.17642569239797, 631.6802022555487], 'id': 7}
+2020-02-08_11:49:01.178[Status]Routing 2: Walk: 2
+2020-02-08_11:49:01.286[Battery Energy]105.39
+2020-02-08_11:49:01.286[Status]Routing Start.
+2020-02-08_11:49:01.427[Status]{'coordinate': [160.76463853859696, 634.520303383323], 'id': 7}
+2020-02-08_11:49:01.427[Status]Routing 3: Walk: 3
+2020-02-08_11:49:01.528[Battery Energy]105.19
+2020-02-08_11:49:01.528[Status]Routing Start.
+2020-02-08_11:49:01.688[Status]{'coordinate': [170.35285138479594, 637.3604045110973], 'id': 7}
+2020-02-08_11:49:01.688[Status]Routing 4: Walk: 4
+2020-02-08_11:49:01.788[Battery Energy]105.00
+2020-02-08_11:49:01.788[Status]Routing Start.
+2020-02-08_11:49:01.938[Status]{'coordinate': [179.94106423099493, 640.2005056388716], 'id': 7}
+2020-02-08_11:49:01.938[Status]Routing 5: Walk: 5
+2020-02-08_11:49:02.050[Battery Energy]104.80
+2020-02-08_11:49:02.050[Status]Routing Start.
+2020-02-08_11:49:02.181[Status]{'coordinate': [189.5292770771939, 643.0406067666459], 'id': 7}
+2020-02-08_11:49:02.182[Status]Routing 6: Walk: 6
+2020-02-08_11:49:02.282[Battery Energy]104.61
+2020-02-08_11:49:02.282[Status]Routing Start.
+2020-02-08_11:49:02.557[Status]{'coordinate': [199.1174899233929, 645.8807078944202], 'id': 7}
+2020-02-08_11:49:02.557[Status]Routing 7: Walk: 7
+2020-02-08_11:49:02.674[Battery Energy]104.29
+2020-02-08_11:49:02.674[Status]Routing Start.
+2020-02-08_11:49:02.970[Status]{'coordinate': [208.70570276959188, 648.7208090221945], 'id': 7}
+2020-02-08_11:49:02.970[Status]Routing 8: Walk: 8
+2020-02-08_11:49:03.074[Battery Energy]103.96
+2020-02-08_11:49:03.074[Status]Routing Start.
+2020-02-08_11:49:03.388[Status]{'coordinate': [218.29391561579087, 651.5609101499688], 'id': 7}
+2020-02-08_11:49:03.388[Status]Routing 9: Walk: 9
+2020-02-08_11:49:03.489[Battery Energy]103.66
+2020-02-08_11:49:03.489[Status]Routing Start.
+2020-02-08_11:49:03.794[Status]{'coordinate': [227.88212846198985, 654.401011277743], 'id': 7}
+2020-02-08_11:49:03.795[Status]Routing 10: Walk: 10
+2020-02-08_11:49:03.906[Battery Energy]103.32
+2020-02-08_11:49:03.906[Status]Routing Start.
+2020-02-08_11:49:04.193[Status]{'coordinate': [237.47034130818884, 657.2411124055174], 'id': 7}
+2020-02-08_11:49:04.194[Status]Routing 11: Walk: 11
+2020-02-08_11:49:04.301[Battery Energy]102.99
+2020-02-08_11:49:04.301[Status]Routing Start.
+2020-02-08_11:49:04.809[Status]Routing 12: Walk: 11
+2020-02-08_11:49:04.912[Battery Energy]102.61
+2020-02-08_11:49:04.912[Status]Routing Start.
+2020-02-08_11:49:05.257[Status]Routing 13: Walk: 11
+2020-02-08_11:49:05.357[Battery Energy]102.33
+2020-02-08_11:49:05.357[Status]Routing Start.
+2020-02-08_11:49:05.634[Status]Routing 14: Walk: 11
+2020-02-08_11:49:05.735[Battery Energy]102.06
+2020-02-08_11:49:05.735[Status]Routing Start.
+2020-02-08_11:49:05.908[Status]{'coordinate': [247.05855415438782, 660.0812135332916], 'id': 7}
+2020-02-08_11:49:05.908[Status]Routing 15: Walk: 12
+2020-02-08_11:49:06.008[Battery Energy]101.84
+2020-02-08_11:49:06.008[Status]Routing Start.
+2020-02-08_11:49:06.351[Status]{'coordinate': [256.6467670005868, 662.9213146610659], 'id': 7}
+2020-02-08_11:49:06.351[Status]Routing 16: Walk: 13
+2020-02-08_11:49:06.451[Battery Energy]101.50
+2020-02-08_11:49:06.451[Status]Routing Start.
+2020-02-08_11:49:06.778[Status]{'coordinate': [266.2349798467858, 665.7614157888402], 'id': 7}
+2020-02-08_11:49:06.778[Status]Routing 17: Walk: 14
+2020-02-08_11:49:06.882[Battery Energy]101.17
+2020-02-08_11:49:06.882[Status]Routing Start.
+2020-02-08_11:49:07.382[Status]Routing 18: Walk: 14
+2020-02-08_11:49:07.482[Battery Energy]100.74
+2020-02-08_11:49:07.482[Status]Routing Start.
+2020-02-08_11:49:07.789[Status]Routing 19: Walk: 14
+2020-02-08_11:49:07.890[Battery Energy]100.42
+2020-02-08_11:49:07.890[Status]Routing Start.
+2020-02-08_11:49:08.209[Status]Routing 20: Walk: 14
+2020-02-08_11:49:08.309[Battery Energy]100.10
+2020-02-08_11:49:08.309[Status]Routing Start.
+2020-02-08_11:49:08.646[Status]Routing 21: Walk: 14
+2020-02-08_11:49:08.747[Battery Energy]99.79
+2020-02-08_11:49:08.747[Status]Routing Start.
+2020-02-08_11:49:08.882[Status]{'coordinate': [275.8231926929848, 668.6015169166145], 'id': 7}
+2020-02-08_11:49:08.882[Status]Routing 22: Walk: 15
+2020-02-08_11:49:08.982[Battery Energy]99.59
+2020-02-08_11:49:08.982[Status]Routing Start.
+2020-02-08_11:49:08.983[Status]Task Finished.
+2020-02-08_11:49:09.083[Battery Energy]99.59
+2020-02-08_11:49:09.326[Status]Routing 24: Walk: 15
+2020-02-08_11:49:09.434[Battery Energy]99.44
+2020-02-08_11:49:09.937[Status]Routing 25: Walk: 15
+2020-02-08_11:49:10.038[Battery Energy]99.08
+2020-02-08_11:49:10.357[Status]Routing 26: Walk: 15
+2020-02-08_11:49:10.457[Battery Energy]98.77
+2020-02-08_11:49:10.573[Status]Routing 27: Walk: 15
+2020-02-08_11:49:10.673[Battery Energy]98.65
+2020-02-08_11:49:11.179[Status]Routing 28: Walk: 15
+2020-02-08_11:49:11.279[Battery Energy]98.23
+2020-02-08_11:49:11.452[Status]Routing 29: Walk: 15
+2020-02-08_11:49:11.552[Battery Energy]98.09
+2020-02-08_11:49:11.861[Status]Routing 30: Walk: 15
+2020-02-08_11:49:11.962[Battery Energy]97.86
+2020-02-08_11:49:12.207[Status]Routing 31: Walk: 15
+2020-02-08_11:49:12.317[Battery Energy]97.72
+2020-02-08_11:49:12.670[Status]Routing 32: Walk: 15
+2020-02-08_11:49:12.774[Battery Energy]97.49
+2020-02-08_11:49:13.078[Status]Routing 33: Walk: 15
+2020-02-08_11:49:13.185[Battery Energy]97.28
+2020-02-08_11:49:13.483[Status]Routing 34: Walk: 15
+2020-02-08_11:49:13.588[Battery Energy]97.10
+2020-02-08_11:49:13.904[Status]Routing 35: Walk: 15
+2020-02-08_11:49:14.014[Battery Energy]96.87
+2020-02-08_11:49:14.342[Status]Routing 36: Walk: 15
+2020-02-08_11:49:14.454[Battery Energy]96.63
+2020-02-08_11:49:14.755[Status]Routing 37: Walk: 15
+2020-02-08_11:49:14.856[Battery Energy]96.43
+2020-02-08_11:49:15.149[Status]Routing 38: Walk: 15
+2020-02-08_11:49:15.250[Battery Energy]96.23
+2020-02-08_11:49:15.382[Status]Routing 39: Walk: 15
+2020-02-08_11:49:15.494[Battery Energy]96.12
+2020-02-08_11:49:15.635[Status]Routing 40: Walk: 15
+2020-02-08_11:49:15.738[Battery Energy]96.03
+2020-02-08_11:49:15.907[Status]Routing 41: Walk: 15
+2020-02-08_11:49:16.013[Battery Energy]95.92
+2020-02-08_11:49:16.157[Status]Routing 42: Walk: 15
+2020-02-08_11:49:16.262[Battery Energy]95.81
+2020-02-08_11:49:16.399[Status]Routing 43: Walk: 15
+2020-02-08_11:49:16.500[Battery Energy]95.70
+2020-02-08_11:49:16.676[Status]Routing 44: Walk: 15
+2020-02-08_11:49:16.786[Battery Energy]95.58
+2020-02-08_11:49:17.111[Status]Routing 45: Walk: 15
+2020-02-08_11:49:17.211[Battery Energy]95.38
+2020-02-08_11:49:17.582[Status]Routing 46: Walk: 15
+2020-02-08_11:49:17.690[Battery Energy]95.15
+2020-02-08_11:49:18.014[Status]Routing 47: Walk: 15
+2020-02-08_11:49:18.118[Battery Energy]94.93
+2020-02-08_11:49:18.404[Status]Routing 48: Walk: 15
+2020-02-08_11:49:18.504[Battery Energy]94.72
+2020-02-08_11:49:18.820[Status]Routing 49: Walk: 15
+2020-02-08_11:49:18.921[Battery Energy]94.56
+2020-02-08_11:49:19.236[Status]Routing 50: Walk: 15
+2020-02-08_11:49:19.342[Battery Energy]94.37
+2020-02-08_11:49:19.678[Status]Routing 51: Walk: 15
+2020-02-08_11:49:19.790[Battery Energy]94.18
+2020-02-08_11:49:20.099[Status]Routing 52: Walk: 15
+2020-02-08_11:49:20.199[Battery Energy]93.99
+2020-02-08_11:49:20.547[Status]Routing 53: Walk: 15
+2020-02-08_11:49:20.650[Battery Energy]93.74
+2020-02-08_11:49:20.963[Status]Routing 54: Walk: 15
+2020-02-08_11:49:21.064[Battery Energy]93.50
+2020-02-08_11:49:21.381[Status]Routing 55: Walk: 15
+2020-02-08_11:49:21.481[Battery Energy]93.31
+2020-02-08_11:49:21.803[Status]Routing 56: Walk: 15
+2020-02-08_11:49:21.904[Battery Energy]93.11
+2020-02-08_11:49:22.215[Status]Routing 57: Walk: 15
+2020-02-08_11:49:22.316[Battery Energy]92.88
+2020-02-08_11:49:22.456[Status]Routing 58: Walk: 15
+2020-02-08_11:49:22.566[Battery Energy]92.79
+2020-02-08_11:49:22.767[Status]Routing 59: Walk: 15
+2020-02-08_11:49:22.868[Battery Energy]92.65
+2020-02-08_11:49:23.120[Status]Routing 60: Walk: 15
+2020-02-08_11:49:23.226[Battery Energy]92.44
+2020-02-08_11:49:23.378[Status]Routing 61: Walk: 15
+2020-02-08_11:49:23.490[Battery Energy]92.32
+2020-02-08_11:49:23.778[Status]Routing 62: Walk: 15
+2020-02-08_11:49:23.886[Battery Energy]92.12
+2020-02-08_11:49:24.237[Status]Routing 63: Walk: 15
+2020-02-08_11:49:24.337[Battery Energy]91.86
+2020-02-08_11:49:24.484[Status]Routing 64: Walk: 15
+2020-02-08_11:49:24.594[Battery Energy]91.76
+2020-02-08_11:49:24.873[Status]Routing 65: Walk: 15
+2020-02-08_11:49:24.973[Battery Energy]91.57
+2020-02-08_11:49:25.186[Status]Routing 66: Walk: 15
+2020-02-08_11:49:25.290[Battery Energy]91.44
+2020-02-08_11:49:25.583[Status]Routing 67: Walk: 15
+2020-02-08_11:49:25.694[Battery Energy]91.25
+2020-02-08_11:49:25.826[Status]Routing 68: Walk: 15
+2020-02-08_11:49:25.930[Battery Energy]91.14
+2020-02-08_11:49:26.246[Status]Routing 69: Walk: 15
+2020-02-08_11:49:26.347[Battery Energy]90.90
+2020-02-08_11:49:26.507[Status]Routing 70: Walk: 15
+2020-02-08_11:49:26.610[Battery Energy]90.76
+2020-02-08_11:49:26.914[Status]Routing 71: Walk: 15
+2020-02-08_11:49:27.018[Battery Energy]90.57
+2020-02-08_11:49:27.315[Status]Routing 72: Walk: 15
+2020-02-08_11:49:27.422[Battery Energy]90.34
+2020-02-08_11:49:27.720[Status]Routing 73: Walk: 15
+2020-02-08_11:49:27.820[Battery Energy]90.13
+2020-02-08_11:49:28.155[Status]Routing 74: Walk: 15
+2020-02-08_11:49:28.258[Battery Energy]89.89
+2020-02-08_11:49:28.411[Status]Routing 75: Walk: 15
+2020-02-08_11:49:28.518[Battery Energy]89.78
+2020-02-08_11:49:28.801[Status]Routing 76: Walk: 15
+2020-02-08_11:49:28.909[Battery Energy]89.59
+2020-02-08_11:49:29.081[Status]Routing 77: Walk: 15
+2020-02-08_11:49:29.193[Battery Energy]89.48
+2020-02-08_11:49:29.342[Status]Routing 78: Walk: 15
+2020-02-08_11:49:29.454[Battery Energy]89.36
+2020-02-08_11:49:29.589[Status]Routing 79: Walk: 15
+2020-02-08_11:49:29.702[Battery Energy]89.26
+2020-02-08_11:49:29.840[Status]Routing 80: Walk: 15
+2020-02-08_11:49:29.950[Battery Energy]89.14
+2020-02-08_11:49:30.104[Status]Routing 81: Walk: 15
+2020-02-08_11:49:30.210[Battery Energy]89.02
+2020-02-08_11:49:30.371[Status]Routing 82: Walk: 15
+2020-02-08_11:49:30.481[Battery Energy]88.89
+2020-02-08_11:49:30.618[Status]Routing 83: Walk: 15
+2020-02-08_11:49:30.726[Battery Energy]88.77
+2020-02-08_11:49:30.866[Status]Routing 84: Walk: 15
+2020-02-08_11:49:30.967[Battery Energy]88.65
+2020-02-08_11:49:31.273[Status]Routing 85: Walk: 15
+2020-02-08_11:49:31.374[Battery Energy]88.42
+2020-02-08_11:49:31.701[Status]Routing 86: Walk: 15
+2020-02-08_11:49:31.801[Battery Energy]88.19
+2020-02-08_11:49:31.967[Status]Routing 87: Walk: 15
+2020-02-08_11:49:32.070[Battery Energy]88.07
+2020-02-08_11:49:32.217[Status]Routing 88: Walk: 15
+2020-02-08_11:49:32.317[Battery Energy]87.97
+2020-02-08_11:49:32.615[Status]Routing 89: Walk: 15
+2020-02-08_11:49:32.721[Battery Energy]87.76
+2020-02-08_11:49:33.105[Status]Routing 90: Walk: 15
+2020-02-08_11:49:33.205[Battery Energy]87.55
+2020-02-08_11:49:33.557[Status]Routing 91: Walk: 15
+2020-02-08_11:49:33.658[Battery Energy]87.30
+2020-02-08_11:49:33.963[Status]Routing 92: Walk: 15
+2020-02-08_11:49:34.064[Battery Energy]87.10
+2020-02-08_11:49:34.268[Status]Routing 93: Walk: 15
+2020-02-08_11:49:34.368[Battery Energy]86.94
+2020-02-08_11:49:34.498[Status]Routing 94: Walk: 15
+2020-02-08_11:49:34.600[Battery Energy]86.84
+2020-02-08_11:49:34.756[Status]Routing 95: Walk: 15
+2020-02-08_11:49:34.862[Battery Energy]86.73
+2020-02-08_11:49:34.999[Status]Routing 96: Walk: 15
+2020-02-08_11:49:35.106[Battery Energy]86.63
+2020-02-08_11:49:35.224[Status]Routing 97: Walk: 15
+2020-02-08_11:49:35.324[Battery Energy]86.53
+2020-02-08_11:49:35.496[Status]Routing 98: Walk: 15
+2020-02-08_11:49:35.597[Battery Energy]86.42
+2020-02-08_11:49:35.813[Status]Routing 99: Walk: 15
+2020-02-08_11:49:35.914[Battery Energy]86.29
+2020-02-08_11:49:36.243[Status]Routing 100: Walk: 15
+2020-02-08_11:49:36.345[Battery Energy]86.07
+2020-02-08_11:49:36.643[Status]Routing 101: Walk: 15
+2020-02-08_11:49:36.743[Battery Energy]85.84
+2020-02-08_11:49:37.084[Status]Routing 102: Walk: 15
+2020-02-08_11:49:37.184[Battery Energy]85.59
+2020-02-08_11:49:37.501[Status]Routing 103: Walk: 15
+2020-02-08_11:49:37.601[Battery Energy]85.36
+2020-02-08_11:49:37.910[Status]Routing 104: Walk: 15
+2020-02-08_11:49:38.014[Battery Energy]85.14
+2020-02-08_11:49:38.359[Status]Routing 105: Walk: 15
+2020-02-08_11:49:38.459[Battery Energy]84.93
+2020-02-08_11:49:38.600[Status]Routing 106: Walk: 15
+2020-02-08_11:49:38.710[Battery Energy]84.85
+2020-02-08_11:49:39.033[Status]Routing 107: Walk: 15
+2020-02-08_11:49:39.147[Battery Energy]84.62
+2020-02-08_11:49:39.422[Status]Routing 108: Walk: 15
+2020-02-08_11:49:39.524[Battery Energy]84.46
+2020-02-08_11:49:39.843[Status]Routing 109: Walk: 15
+2020-02-08_11:49:39.950[Battery Energy]84.25
+2020-02-08_11:49:40.117[Status]Routing 110: Walk: 15
+2020-02-08_11:49:40.231[Battery Energy]84.14
+2020-02-08_11:49:40.526[Status]Routing 111: Walk: 15
+2020-02-08_11:49:40.638[Battery Energy]83.89
+2020-02-08_11:49:40.978[Status]Routing 112: Walk: 15
+2020-02-08_11:49:41.090[Battery Energy]83.66
+2020-02-08_11:49:41.342[Status]Routing 113: Walk: 15
+2020-02-08_11:49:41.443[Battery Energy]83.47
+2020-02-08_11:49:41.683[Status]Routing 114: Walk: 15
+2020-02-08_11:49:41.798[Battery Energy]83.32
+2020-02-08_11:49:41.947[Status]Routing 115: Walk: 15
+2020-02-08_11:49:42.060[Battery Energy]83.20
+2020-02-08_11:49:42.305[Status]Routing 116: Walk: 15
+2020-02-08_11:49:42.411[Battery Energy]83.02
+2020-02-08_11:49:42.734[Status]Routing 117: Walk: 15
+2020-02-08_11:49:42.835[Battery Energy]82.80
+2020-02-08_11:49:43.168[Status]Routing 118: Walk: 15
+2020-02-08_11:49:43.278[Battery Energy]82.56
+2020-02-08_11:49:43.502[Status]Routing 119: Walk: 15
+2020-02-08_11:49:43.614[Battery Energy]82.40
+2020-02-08_11:49:43.767[Status]Routing 120: Walk: 15
+2020-02-08_11:49:43.867[Battery Energy]82.28
+2020-02-08_11:49:44.116[Status]Routing 121: Walk: 15
+2020-02-08_11:49:44.216[Battery Energy]82.09
+2020-02-08_11:49:44.383[Status]Routing 122: Walk: 15
+2020-02-08_11:49:44.491[Battery Energy]81.97
+2020-02-08_11:49:44.862[Status]Routing 123: Walk: 15
+2020-02-08_11:49:44.962[Battery Energy]81.74
+2020-02-08_11:49:45.261[Status]Routing 124: Walk: 15
+2020-02-08_11:49:45.366[Battery Energy]81.56
+2020-02-08_11:49:45.520[Status]Routing 125: Walk: 15
+2020-02-08_11:49:45.621[Battery Energy]81.45
+2020-02-08_11:49:45.916[Status]Routing 126: Walk: 15
+2020-02-08_11:49:46.019[Battery Energy]81.24
+2020-02-08_11:49:46.329[Status]Routing 127: Walk: 15
+2020-02-08_11:49:46.429[Battery Energy]81.03
+2020-02-08_11:49:46.779[Status]Routing 128: Walk: 15
+2020-02-08_11:49:46.882[Battery Energy]80.81
+2020-02-08_11:49:47.210[Status]Routing 129: Walk: 15
+2020-02-08_11:49:47.311[Battery Energy]80.61
+2020-02-08_11:49:47.461[Status]Routing 130: Walk: 15
+2020-02-08_11:49:47.570[Battery Energy]80.49
+2020-02-08_11:49:47.879[Status]Routing 131: Walk: 15
+2020-02-08_11:49:47.979[Battery Energy]80.26
+2020-02-08_11:49:48.262[Status]Routing 132: Walk: 15
+2020-02-08_11:49:48.363[Battery Energy]80.05
+2020-02-08_11:49:48.530[Status]Routing 133: Walk: 15
+2020-02-08_11:49:48.638[Battery Energy]79.94
+2020-02-08_11:49:48.966[Status]Routing 134: Walk: 15
+2020-02-08_11:49:49.082[Battery Energy]79.72
+2020-02-08_11:49:49.224[Status]Routing 135: Walk: 15
+2020-02-08_11:49:49.333[Battery Energy]79.60
+2020-02-08_11:49:49.491[Status]Routing 136: Walk: 15
+2020-02-08_11:49:49.602[Battery Energy]79.46
+2020-02-08_11:49:49.748[Status]Routing 137: Walk: 15
+2020-02-08_11:49:49.858[Battery Energy]79.32
+2020-02-08_11:49:50.005[Status]Routing 138: Walk: 15
+2020-02-08_11:49:50.105[Battery Energy]79.21
+2020-02-08_11:49:50.328[Status]Routing 139: Walk: 15
+2020-02-08_11:49:50.455[Battery Energy]79.04
+2020-02-08_11:49:50.593[Status]Routing 140: Walk: 15
+2020-02-08_11:49:50.694[Battery Energy]78.95
+2020-02-08_11:49:50.838[Status]Routing 141: Walk: 15
+2020-02-08_11:49:50.941[Battery Energy]78.83
+2020-02-08_11:49:51.094[Status]Routing 142: Walk: 15
+2020-02-08_11:49:51.194[Battery Energy]78.71
+2020-02-08_11:49:51.378[Status]Routing 143: Walk: 15
+2020-02-08_11:49:51.494[Battery Energy]78.58
+2020-02-08_11:49:51.621[Status]Routing 144: Walk: 15
+2020-02-08_11:49:51.730[Battery Energy]78.47
+2020-02-08_11:49:51.977[Status]Routing 145: Walk: 15
+2020-02-08_11:49:52.084[Battery Energy]78.29
+2020-02-08_11:49:52.212[Status]Routing 146: Walk: 15
+2020-02-08_11:49:52.322[Battery Energy]78.18
+2020-02-08_11:49:52.447[Status]Routing 147: Walk: 15
+2020-02-08_11:49:52.547[Battery Energy]78.09
+2020-02-08_11:49:52.696[Status]Routing 148: Walk: 15
+2020-02-08_11:49:52.798[Battery Energy]78.01
+2020-02-08_11:49:53.065[Status]Routing 149: Walk: 15
+2020-02-08_11:49:53.167[Battery Energy]77.81
+2020-02-08_11:49:53.354[Status]Routing 150: Walk: 15
+2020-02-08_11:49:53.456[Battery Energy]77.68
+2020-02-08_11:49:53.600[Status]Routing 151: Walk: 15
+2020-02-08_11:49:53.701[Battery Energy]77.56
+2020-02-08_11:49:53.836[Status]Routing 152: Walk: 15
+2020-02-08_11:49:53.945[Battery Energy]77.46
+2020-02-08_11:49:54.098[Status]Routing 153: Walk: 15
+2020-02-08_11:49:54.198[Battery Energy]77.33
+2020-02-08_11:49:54.359[Status]Routing 154: Walk: 15
+2020-02-08_11:49:54.461[Battery Energy]77.19
+2020-02-08_11:49:54.640[Status]Routing 155: Walk: 15
+2020-02-08_11:49:54.742[Battery Energy]77.07
+2020-02-08_11:49:54.889[Status]Routing 156: Walk: 15
+2020-02-08_11:49:54.997[Battery Energy]76.98
+2020-02-08_11:49:55.151[Status]Routing 157: Walk: 15
+2020-02-08_11:49:55.262[Battery Energy]76.87
+2020-02-08_11:49:55.395[Status]Routing 158: Walk: 15
+2020-02-08_11:49:55.496[Battery Energy]76.77
+2020-02-08_11:49:55.638[Status]Routing 159: Walk: 15
+2020-02-08_11:49:55.746[Battery Energy]76.67
+2020-02-08_11:49:55.883[Status]Routing 160: Walk: 15
+2020-02-08_11:49:55.983[Battery Energy]76.55
+2020-02-08_11:49:56.137[Status]Routing 161: Walk: 15
+2020-02-08_11:49:56.237[Battery Energy]76.44
+2020-02-08_11:49:56.403[Status]Routing 162: Walk: 15
+2020-02-08_11:49:56.503[Battery Energy]76.30
+2020-02-08_11:49:56.662[Status]Routing 163: Walk: 15
+2020-02-08_11:49:56.782[Battery Energy]76.19
+2020-02-08_11:49:56.931[Status]Routing 164: Walk: 15
+2020-02-08_11:49:57.032[Battery Energy]76.06
+2020-02-08_11:49:57.184[Status]Routing 165: Walk: 15
+2020-02-08_11:49:57.290[Battery Energy]75.96
+2020-02-08_11:49:57.421[Status]Routing 166: Walk: 15
+2020-02-08_11:49:57.530[Battery Energy]75.87
+2020-02-08_11:49:57.675[Status]Routing 167: Walk: 15
+2020-02-08_11:49:57.775[Battery Energy]75.77
+2020-02-08_11:49:57.917[Status]Routing 168: Walk: 15
+2020-02-08_11:49:58.022[Battery Energy]75.70
+2020-02-08_11:49:58.169[Status]Routing 169: Walk: 15
+2020-02-08_11:49:58.271[Battery Energy]75.58
+2020-02-08_11:49:58.434[Status]Routing 170: Walk: 15
+2020-02-08_11:49:58.538[Battery Energy]75.46
+2020-02-08_11:49:58.671[Status]Routing 171: Walk: 15
+2020-02-08_11:49:58.778[Battery Energy]75.38
+2020-02-08_11:49:58.927[Status]Routing 172: Walk: 15
+2020-02-08_11:49:59.042[Battery Energy]75.26
+2020-02-08_11:49:59.163[Status]Routing 173: Walk: 15
+2020-02-08_11:49:59.267[Battery Energy]75.16
+2020-02-08_11:49:59.425[Status]Routing 174: Walk: 15
+2020-02-08_11:49:59.525[Battery Energy]75.05
+2020-02-08_11:49:59.703[Status]Routing 175: Walk: 15
+2020-02-08_11:49:59.803[Battery Energy]74.95
+2020-02-08_11:49:59.945[Status]Routing 176: Walk: 15
+2020-02-08_11:50:00.045[Battery Energy]74.84
+2020-02-08_11:50:00.193[Status]Routing 177: Walk: 15
+2020-02-08_11:50:00.293[Battery Energy]74.75
+2020-02-08_11:50:00.452[Status]Routing 178: Walk: 15
+2020-02-08_11:50:00.557[Battery Energy]74.63
+2020-02-08_11:50:00.729[Status]Routing 179: Walk: 15
+2020-02-08_11:50:00.829[Battery Energy]74.52
+2020-02-08_11:50:00.979[Status]Routing 180: Walk: 15
+2020-02-08_11:50:01.090[Battery Energy]74.42
+2020-02-08_11:50:01.241[Status]Routing 181: Walk: 15
+2020-02-08_11:50:01.354[Battery Energy]74.29
+2020-02-08_11:50:01.501[Status]Routing 182: Walk: 15
+2020-02-08_11:50:01.601[Battery Energy]74.17
+2020-02-08_11:50:01.757[Status]Routing 183: Walk: 15
+2020-02-08_11:50:01.858[Battery Energy]74.06
+2020-02-08_11:50:02.006[Status]Routing 184: Walk: 15
+2020-02-08_11:50:02.106[Battery Energy]73.95
+2020-02-08_11:50:02.263[Status]Routing 185: Walk: 15
+2020-02-08_11:50:02.363[Battery Energy]73.85
+2020-02-08_11:50:02.521[Status]Routing 186: Walk: 15
+2020-02-08_11:50:02.622[Battery Energy]73.73
+2020-02-08_11:50:02.773[Status]Routing 187: Walk: 15
+2020-02-08_11:50:02.874[Battery Energy]73.60
+2020-02-08_11:50:03.036[Status]Routing 188: Walk: 15
+2020-02-08_11:50:03.139[Battery Energy]73.51
+2020-02-08_11:50:03.251[Status]Routing 189: Walk: 15
+2020-02-08_11:50:03.353[Battery Energy]73.42
+2020-02-08_11:50:03.496[Status]Routing 190: Walk: 15
+2020-02-08_11:50:03.596[Battery Energy]73.33
+2020-02-08_11:50:03.735[Status]Routing 191: Walk: 15
+2020-02-08_11:50:03.835[Battery Energy]73.23
+2020-02-08_11:50:04.044[Status]Routing 192: Walk: 15
+2020-02-08_11:50:04.154[Battery Energy]73.08
+2020-02-08_11:50:04.295[Status]Routing 193: Walk: 15
+2020-02-08_11:50:04.395[Battery Energy]72.98
+2020-02-08_11:50:04.570[Status]Routing 194: Walk: 15
+2020-02-08_11:50:04.682[Battery Energy]72.84
+2020-02-08_11:50:04.812[Status]Routing 195: Walk: 15
+2020-02-08_11:50:04.912[Battery Energy]72.74
+2020-02-08_11:50:05.065[Status]Routing 196: Walk: 15
+2020-02-08_11:50:05.178[Battery Energy]72.63
+2020-02-08_11:50:05.316[Status]Routing 197: Walk: 15
+2020-02-08_11:50:05.417[Battery Energy]72.51
+2020-02-08_11:50:05.567[Status]Routing 198: Walk: 15
+2020-02-08_11:50:05.682[Battery Energy]72.42
+2020-02-08_11:50:05.814[Status]Routing 199: Walk: 15
+2020-02-08_11:50:05.922[Battery Energy]72.31
+2020-02-08_11:50:06.047[Status]Routing 200: Walk: 15
+2020-02-08_11:50:06.149[Battery Energy]72.20
+2020-02-08_11:50:06.328[Status]Routing 201: Walk: 15
+2020-02-08_11:50:06.438[Battery Energy]72.09
+2020-02-08_11:50:06.571[Status]Routing 202: Walk: 15
+2020-02-08_11:50:06.674[Battery Energy]71.98
+2020-02-08_11:50:06.827[Status]Routing 203: Walk: 15
+2020-02-08_11:50:06.934[Battery Energy]71.87
+2020-02-08_11:50:07.098[Status]Routing 204: Walk: 15
+2020-02-08_11:50:07.210[Battery Energy]71.75
+2020-02-08_11:50:07.379[Status]Routing 205: Walk: 15
+2020-02-08_11:50:07.490[Battery Energy]71.63
+2020-02-08_11:50:07.620[Status]Routing 206: Walk: 15
+2020-02-08_11:50:07.723[Battery Energy]71.51
+2020-02-08_11:50:07.866[Status]Routing 207: Walk: 15
+2020-02-08_11:50:07.986[Battery Energy]71.42
+2020-02-08_11:50:08.118[Status]Routing 208: Walk: 15
+2020-02-08_11:50:08.228[Battery Energy]71.31
+2020-02-08_11:50:08.385[Status]Routing 209: Walk: 15
+2020-02-08_11:50:08.485[Battery Energy]71.20
+2020-02-08_11:50:08.630[Status]Routing 210: Walk: 15
+2020-02-08_11:50:08.731[Battery Energy]71.10
+2020-02-08_11:50:08.892[Status]Routing 211: Walk: 15
+2020-02-08_11:50:09.002[Battery Energy]70.96
+2020-02-08_11:50:09.133[Status]Routing 212: Walk: 15
+2020-02-08_11:50:09.240[Battery Energy]70.87
+2020-02-08_11:50:09.372[Status]Routing 213: Walk: 15
+2020-02-08_11:50:09.472[Battery Energy]70.79
+2020-02-08_11:50:09.639[Status]Routing 214: Walk: 15
+2020-02-08_11:50:09.750[Battery Energy]70.69
+2020-02-08_11:50:09.923[Status]Routing 215: Walk: 15
+2020-02-08_11:50:10.023[Battery Energy]70.60
+2020-02-08_11:50:10.174[Status]Routing 216: Walk: 15
+2020-02-08_11:50:10.278[Battery Energy]70.49
+2020-02-08_11:50:10.442[Status]Routing 217: Walk: 15
+2020-02-08_11:50:10.551[Battery Energy]70.36
+2020-02-08_11:50:10.705[Status]Routing 218: Walk: 15
+2020-02-08_11:50:10.805[Battery Energy]70.24
+2020-02-08_11:50:10.955[Status]Routing 219: Walk: 15
+2020-02-08_11:50:11.057[Battery Energy]70.11
+2020-02-08_11:50:11.205[Status]Routing 220: Walk: 15
+2020-02-08_11:50:11.318[Battery Energy]69.98
+2020-02-08_11:50:11.482[Status]Routing 221: Walk: 15
+2020-02-08_11:50:11.589[Battery Energy]69.86
+2020-02-08_11:50:11.744[Status]Routing 222: Walk: 15
+2020-02-08_11:50:11.847[Battery Energy]69.76
+2020-02-08_11:50:12.009[Status]Routing 223: Walk: 15
+2020-02-08_11:50:12.122[Battery Energy]69.64
+2020-02-08_11:50:12.276[Status]Routing 224: Walk: 15
+2020-02-08_11:50:12.382[Battery Energy]69.51
+2020-02-08_11:50:12.533[Status]Routing 225: Walk: 15
+2020-02-08_11:50:12.641[Battery Energy]69.40
+2020-02-08_11:50:12.791[Status]Routing 226: Walk: 15
+2020-02-08_11:50:12.898[Battery Energy]69.27
+2020-02-08_11:50:13.036[Status]Routing 227: Walk: 15
+2020-02-08_11:50:13.142[Battery Energy]69.15
+2020-02-08_11:50:13.311[Status]Routing 228: Walk: 15
+2020-02-08_11:50:13.422[Battery Energy]69.03
+2020-02-08_11:50:13.563[Status]Routing 229: Walk: 15
+2020-02-08_11:50:13.664[Battery Energy]68.90
+2020-02-08_11:50:13.826[Status]Routing 230: Walk: 15
+2020-02-08_11:50:13.930[Battery Energy]68.78
+2020-02-08_11:50:14.077[Status]Routing 231: Walk: 15
+2020-02-08_11:50:14.177[Battery Energy]68.67
+2020-02-08_11:50:14.309[Status]Routing 232: Walk: 15
+2020-02-08_11:50:14.409[Battery Energy]68.56
+2020-02-08_11:50:14.577[Status]Routing 233: Walk: 15
+2020-02-08_11:50:14.682[Battery Energy]68.44
+2020-02-08_11:50:14.850[Status]Routing 234: Walk: 15
+2020-02-08_11:50:14.954[Battery Energy]68.33
+2020-02-08_11:50:15.114[Status]Routing 235: Walk: 15
+2020-02-08_11:50:15.215[Battery Energy]68.20
+2020-02-08_11:50:15.385[Status]Routing 236: Walk: 15
+2020-02-08_11:50:15.497[Battery Energy]68.09
+2020-02-08_11:50:15.643[Status]Routing 237: Walk: 15
+2020-02-08_11:50:15.754[Battery Energy]67.99
+2020-02-08_11:50:15.910[Status]Routing 238: Walk: 15
+2020-02-08_11:50:16.017[Battery Energy]67.86
+2020-02-08_11:50:16.160[Status]Routing 239: Walk: 15
+2020-02-08_11:50:16.270[Battery Energy]67.72
+2020-02-08_11:50:16.415[Status]Routing 240: Walk: 15
+2020-02-08_11:50:16.516[Battery Energy]67.60
+2020-02-08_11:50:16.664[Status]Routing 241: Walk: 15
+2020-02-08_11:50:16.768[Battery Energy]67.50
+2020-02-08_11:50:16.906[Status]Routing 242: Walk: 15
+2020-02-08_11:50:17.011[Battery Energy]67.43
+2020-02-08_11:50:17.152[Status]Routing 243: Walk: 15
+2020-02-08_11:50:17.252[Battery Energy]67.32
+2020-02-08_11:50:17.421[Status]Routing 244: Walk: 15
+2020-02-08_11:50:17.538[Battery Energy]67.20
+2020-02-08_11:50:17.692[Status]Routing 245: Walk: 15
+2020-02-08_11:50:17.793[Battery Energy]67.10
+2020-02-08_11:50:17.935[Status]Routing 246: Walk: 15
+2020-02-08_11:50:18.046[Battery Energy]66.96
+2020-02-08_11:50:18.200[Status]Routing 247: Walk: 15
+2020-02-08_11:50:18.300[Battery Energy]66.84
+2020-02-08_11:50:18.462[Status]Routing 248: Walk: 15
+2020-02-08_11:50:18.563[Battery Energy]66.74
+2020-02-08_11:50:18.727[Status]Routing 249: Walk: 15
+2020-02-08_11:50:18.834[Battery Energy]66.64
+2020-02-08_11:50:18.988[Status]Routing 250: Walk: 15
+2020-02-08_11:50:19.090[Battery Energy]66.54
+2020-02-08_11:50:19.250[Status]Routing 251: Walk: 15
+2020-02-08_11:50:19.351[Battery Energy]66.42
+2020-02-08_11:50:19.477[Status]Routing 252: Walk: 15
+2020-02-08_11:50:19.579[Battery Energy]66.31
+2020-02-08_11:50:19.765[Status]Routing 253: Walk: 15
+2020-02-08_11:50:19.866[Battery Energy]66.20
+2020-02-08_11:50:20.015[Status]Routing 254: Walk: 15
+2020-02-08_11:50:20.118[Battery Energy]66.10
+2020-02-08_11:50:20.275[Status]Routing 255: Walk: 15
+2020-02-08_11:50:20.389[Battery Energy]66.02
+2020-02-08_11:50:20.528[Status]Routing 256: Walk: 15
+2020-02-08_11:50:20.628[Battery Energy]65.94
+2020-02-08_11:50:20.798[Status]Routing 257: Walk: 15
+2020-02-08_11:50:20.906[Battery Energy]65.81
+2020-02-08_11:50:21.058[Status]Routing 258: Walk: 15
+2020-02-08_11:50:21.166[Battery Energy]65.69
+2020-02-08_11:50:21.325[Status]Routing 259: Walk: 15
+2020-02-08_11:50:21.433[Battery Energy]65.58
+2020-02-08_11:50:21.562[Status]Routing 260: Walk: 15
+2020-02-08_11:50:21.665[Battery Energy]65.49
+2020-02-08_11:50:21.836[Status]Routing 261: Walk: 15
+2020-02-08_11:50:21.941[Battery Energy]65.39
+2020-02-08_11:50:22.096[Status]Routing 262: Walk: 15
+2020-02-08_11:50:22.206[Battery Energy]65.27
+2020-02-08_11:50:22.407[Status]Routing 263: Walk: 15
+2020-02-08_11:50:22.507[Battery Energy]65.13
+2020-02-08_11:50:22.654[Status]Routing 264: Walk: 15
+2020-02-08_11:50:22.754[Battery Energy]65.01
+2020-02-08_11:50:22.902[Status]Routing 265: Walk: 15
+2020-02-08_11:50:23.022[Battery Energy]64.89
+2020-02-08_11:50:23.145[Status]Routing 266: Walk: 15
+2020-02-08_11:50:23.250[Battery Energy]64.81
+2020-02-08_11:50:23.405[Status]Routing 267: Walk: 15
+2020-02-08_11:50:23.526[Battery Energy]64.71
+2020-02-08_11:50:23.681[Status]Routing 268: Walk: 15
+2020-02-08_11:50:23.794[Battery Energy]64.58
+2020-02-08_11:50:23.927[Status]Routing 269: Walk: 15
+2020-02-08_11:50:24.027[Battery Energy]64.50
+2020-02-08_11:50:24.220[Status]Routing 270: Walk: 15
+2020-02-08_11:50:24.329[Battery Energy]64.38
+2020-02-08_11:50:24.489[Status]Routing 271: Walk: 15
+2020-02-08_11:50:24.589[Battery Energy]64.27
+2020-02-08_11:50:24.773[Status]Routing 272: Walk: 15
+2020-02-08_11:50:24.873[Battery Energy]64.10
+2020-02-08_11:50:24.984[Status]Routing 273: Walk: 15
+2020-02-08_11:50:25.084[Battery Energy]63.98
+2020-02-08_11:50:25.239[Status]Routing 274: Walk: 15
+2020-02-08_11:50:25.340[Battery Energy]63.90
+2020-02-08_11:50:25.493[Status]Routing 275: Walk: 15
+2020-02-08_11:50:25.600[Battery Energy]63.81
+2020-02-08_11:50:25.780[Status]Routing 276: Walk: 15
+2020-02-08_11:50:25.880[Battery Energy]63.67
+2020-02-08_11:50:26.037[Status]Routing 277: Walk: 15
+2020-02-08_11:50:26.137[Battery Energy]63.56
+2020-02-08_11:50:26.300[Status]Routing 278: Walk: 15
+2020-02-08_11:50:26.410[Battery Energy]63.44
+2020-02-08_11:50:26.548[Status]Routing 279: Walk: 15
+2020-02-08_11:50:26.650[Battery Energy]63.33
+2020-02-08_11:50:26.806[Status]Routing 280: Walk: 15
+2020-02-08_11:50:26.907[Battery Energy]63.22
+2020-02-08_11:50:27.046[Status]Routing 281: Walk: 15
+2020-02-08_11:50:27.150[Battery Energy]63.12
+2020-02-08_11:50:27.290[Status]Routing 282: Walk: 15
+2020-02-08_11:50:27.404[Battery Energy]63.04
+2020-02-08_11:50:27.564[Status]Routing 283: Walk: 15
+2020-02-08_11:50:27.678[Battery Energy]62.92
+2020-02-08_11:50:27.813[Status]Routing 284: Walk: 15
+2020-02-08_11:50:27.914[Battery Energy]62.82
+2020-02-08_11:50:28.071[Status]Routing 285: Walk: 15
+2020-02-08_11:50:28.171[Battery Energy]62.71
+2020-02-08_11:50:28.299[Status]Routing 286: Walk: 15
+2020-02-08_11:50:28.400[Battery Energy]62.61
+2020-02-08_11:50:28.539[Status]Routing 287: Walk: 15
+2020-02-08_11:50:28.649[Battery Energy]62.51
+2020-02-08_11:50:28.786[Status]Routing 288: Walk: 15
+2020-02-08_11:50:28.886[Battery Energy]62.41
+2020-02-08_11:50:29.067[Status]Routing 289: Walk: 15
+2020-02-08_11:50:29.170[Battery Energy]62.29
+2020-02-08_11:50:29.322[Status]Routing 290: Walk: 15
+2020-02-08_11:50:29.422[Battery Energy]62.16
+2020-02-08_11:50:29.580[Status]Routing 291: Walk: 15
+2020-02-08_11:50:29.689[Battery Energy]62.06
+2020-02-08_11:50:29.820[Status]Routing 292: Walk: 15
+2020-02-08_11:50:29.922[Battery Energy]61.95
+2020-02-08_11:50:30.105[Status]Routing 293: Walk: 15
+2020-02-08_11:50:30.218[Battery Energy]61.84
+2020-02-08_11:50:30.363[Status]Routing 294: Walk: 15
+2020-02-08_11:50:30.463[Battery Energy]61.74
+2020-02-08_11:50:30.626[Status]Routing 295: Walk: 15
+2020-02-08_11:50:30.738[Battery Energy]61.64
+2020-02-08_11:50:30.900[Status]Routing 296: Walk: 15
+2020-02-08_11:50:31.006[Battery Energy]61.50
+2020-02-08_11:50:31.115[Status]Routing 297: Walk: 15
+2020-02-08_11:50:31.216[Battery Energy]61.40
+2020-02-08_11:50:31.381[Status]Routing 298: Walk: 15
+2020-02-08_11:50:31.481[Battery Energy]61.27
+2020-02-08_11:50:31.634[Status]Routing 299: Walk: 15
+2020-02-08_11:50:31.738[Battery Energy]61.15
+2020-02-08_11:50:31.908[Status]Routing 300: Walk: 15
+2020-02-08_11:50:32.008[Battery Energy]61.04
+2020-02-08_11:50:32.169[Status]Routing 301: Walk: 15
+2020-02-08_11:50:32.270[Battery Energy]60.95
+2020-02-08_11:50:32.426[Status]Routing 302: Walk: 15
+2020-02-08_11:50:32.527[Battery Energy]60.87
+2020-02-08_11:50:32.699[Status]Routing 303: Walk: 15
+2020-02-08_11:50:32.800[Battery Energy]60.77
+2020-02-08_11:50:32.936[Status]Routing 304: Walk: 15
+2020-02-08_11:50:33.036[Battery Energy]60.66
+2020-02-08_11:50:33.176[Status]Routing 305: Walk: 15
+2020-02-08_11:50:33.298[Battery Energy]60.56
+2020-02-08_11:50:33.490[Status]Routing 306: Walk: 15
+2020-02-08_11:50:33.598[Battery Energy]60.43
+2020-02-08_11:50:33.750[Status]Routing 307: Walk: 15
+2020-02-08_11:50:33.850[Battery Energy]60.31
+2020-02-08_11:50:34.026[Status]Routing 308: Walk: 15
+2020-02-08_11:50:34.130[Battery Energy]60.19
+2020-02-08_11:50:34.283[Status]Routing 309: Walk: 15
+2020-02-08_11:50:34.389[Battery Energy]60.06
+2020-02-08_11:50:34.537[Status]Routing 310: Walk: 15
+2020-02-08_11:50:34.637[Battery Energy]59.95
+2020-02-08_11:50:34.823[Status]Routing 311: Walk: 15
+2020-02-08_11:50:34.929[Battery Energy]59.81
+2020-02-08_11:50:35.082[Status]Routing 312: Walk: 15
+2020-02-08_11:50:35.186[Battery Energy]59.70
+2020-02-08_11:50:35.331[Status]Routing 313: Walk: 15
+2020-02-08_11:50:35.435[Battery Energy]59.58
+2020-02-08_11:50:35.584[Status]Routing 314: Walk: 15
+2020-02-08_11:50:35.689[Battery Energy]59.48
+2020-02-08_11:50:35.847[Status]Routing 315: Walk: 15
+2020-02-08_11:50:35.947[Battery Energy]59.34
+2020-02-08_11:50:36.116[Status]Routing 316: Walk: 15
+2020-02-08_11:50:36.216[Battery Energy]59.23
+2020-02-08_11:50:36.373[Status]Routing 317: Walk: 15
+2020-02-08_11:50:36.473[Battery Energy]59.11
+2020-02-08_11:50:36.612[Status]Routing 318: Walk: 15
+2020-02-08_11:50:36.722[Battery Energy]59.01
+2020-02-08_11:50:36.875[Status]Routing 319: Walk: 15
+2020-02-08_11:50:36.975[Battery Energy]58.87
+2020-02-08_11:50:37.135[Status]Routing 320: Walk: 15
+2020-02-08_11:50:37.236[Battery Energy]58.75
+2020-02-08_11:50:37.372[Status]Routing 321: Walk: 15
+2020-02-08_11:50:37.474[Battery Energy]58.64
+2020-02-08_11:50:37.601[Status]Routing 322: Walk: 15
+2020-02-08_11:50:37.701[Battery Energy]58.55
+2020-02-08_11:50:37.844[Status]Routing 323: Walk: 15
+2020-02-08_11:50:37.950[Battery Energy]58.47
+2020-02-08_11:50:38.096[Status]Routing 324: Walk: 15
+2020-02-08_11:50:38.206[Battery Energy]58.34
+2020-02-08_11:50:38.360[Status]Routing 325: Walk: 15
+2020-02-08_11:50:38.461[Battery Energy]58.22
+2020-02-08_11:50:38.605[Status]Routing 326: Walk: 15
+2020-02-08_11:50:38.705[Battery Energy]58.11
+2020-02-08_11:50:38.850[Status]Routing 327: Walk: 15
+2020-02-08_11:50:38.958[Battery Energy]58.00
+2020-02-08_11:50:39.087[Status]Routing 328: Walk: 15
+2020-02-08_11:50:39.194[Battery Energy]57.90
+2020-02-08_11:50:39.359[Status]Routing 329: Walk: 15
+2020-02-08_11:50:39.474[Battery Energy]57.79
+2020-02-08_11:50:39.602[Status]Routing 330: Walk: 15
+2020-02-08_11:50:39.703[Battery Energy]57.68
+2020-02-08_11:50:39.865[Status]Routing 331: Walk: 15
+2020-02-08_11:50:39.965[Battery Energy]57.57
+2020-02-08_11:50:40.098[Status]Routing 332: Walk: 15
+2020-02-08_11:50:40.206[Battery Energy]57.46
+2020-02-08_11:50:40.346[Status]Routing 333: Walk: 15
+2020-02-08_11:50:40.449[Battery Energy]57.36
+2020-02-08_11:50:40.591[Status]Routing 334: Walk: 15
+2020-02-08_11:50:40.702[Battery Energy]57.26
+2020-02-08_11:50:40.841[Status]Routing 335: Walk: 15
+2020-02-08_11:50:40.950[Battery Energy]57.15
+2020-02-08_11:50:41.120[Status]Routing 336: Walk: 15
+2020-02-08_11:50:41.221[Battery Energy]57.04
+2020-02-08_11:50:41.382[Status]Routing 337: Walk: 15
+2020-02-08_11:50:41.492[Battery Energy]56.94
+2020-02-08_11:50:41.658[Status]Routing 338: Walk: 15
+2020-02-08_11:50:41.759[Battery Energy]56.82
+2020-02-08_11:50:41.935[Status]Routing 339: Walk: 15
+2020-02-08_11:50:42.046[Battery Energy]56.69
+2020-02-08_11:50:42.225[Status]Routing 340: Walk: 15
+2020-02-08_11:50:42.325[Battery Energy]56.58
